@@ -1,10 +1,10 @@
-# OCS
-Projet Objets Connectés et Services
+# OCS Projet Objets Connectés et Services
+# Hophop - Le réveil connécté
 
 ## Team
-AJROUD Rami - Si5 Architecture logiciel - Scrum Master
-DIOP Mamadou - Master 2 IAM
-MÔNIER Marhold - SI5 IHM
+* AJROUD Rami - Si5 Architecture logiciel - Scrum Master
+* DIOP Mamadou - Master 2 IAM
+* MÔNIER Marhold - SI5 IHM
 
 ## Présentation du projet : 
 
