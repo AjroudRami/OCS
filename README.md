@@ -20,26 +20,28 @@ L’écran sera un écran à faible consommation d’énergie, il sera rétro-é
 Une interface Web (adaptée également aux appareils mobiles) permettra également de configurer le réveil, et de visualiser les différents temps de préparation en fonction des jours et des activités.
 
 
-Scénario d’utilisation :
+## Scénario d’utilisation :
 
 Prérequis : Bob a une playlist musicale fournie, il utilise également Hophop! quotidiennement depuis plus d’un mois, et a tout son emploi du temps en ligne sur Google Agenda 
 
 Le soir, Bob est notifié qu’il doit aller se coucher pour être en forme le lendemain. Demain, il commence à 9h. En général, il se lève 1h avant le début de son activité, Hophop! lui annonce qu’il a prévu le réveil pour 8h. Bob ne se prononce pas, l’horaire est confirmée. Le lendemain matin, Hophop! se connecte à la météo et enregistre qu’il fait beau, il est connecté aux enceintes de sa chambre et lance une musique douce et chaude (comme le soleil), puis annonce la météo et l’activité du jour. Bob dit “hophop” et le réveil s’éteint.
 
 
-## Contraintes mécaniques :
+## Boitier
 
-	L’objet sera vraisemblablement utilisé dans la chambre à coucher, sur une table de chevet. Le principal risque est de pouvoir tomber : il faut donc qu’il résiste à des chutes d’une hauteur de 1m. Aucune résistance à l’humidité n’est requise.
+### Contraintes mécaniques
 
-Autre contrainte du boîtier:
+L’objet sera vraisemblablement utilisé dans la chambre à coucher, sur une table de chevet. Le principal risque est de pouvoir tomber : il faut donc qu’il résiste à des chutes d’une hauteur de 1m. Aucune résistance à l’humidité n’est requise.
+
+### Autre contrainte du boîtier:
 
 Le boîtier doit avoir des compartiments spéciaux blindé pour les haut parleurs. Ceux ci ont deux missions, éviter les perturbations électromagnétiques générées par les haut parleurs mais aussi maintenir une qualité audio suffisante à partir de haut parleurs très petits.
 
-## Finition
+### Finition
 
 L'appareil sera fait d'un plastique glossy de couleur.
 
-# Croquis
+## Croquis
 
 ![croquis](https://github.com/Monierv/OCS/blob/master/Documentation/resources/croquis.png)
 
