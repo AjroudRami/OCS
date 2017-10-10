@@ -43,7 +43,7 @@ L'appareil sera fait d'un plastique glossy de couleur.
 
 ## Croquis
 
-![croquis](https://github.com/Monierv/OCS/blob/master/Documentation/resources/croquis.png)
+[croquis](https://github.com/Monierv/OCS/blob/master/Documentation/resources/croquis.png)
 
 ## Matériel : 
 * Ecran (faible consommation d’énergie, rétroéclairage commandé par bouton, pas besoin de couleurs)
