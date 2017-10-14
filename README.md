@@ -1,54 +1,51 @@
-# OCS Projet Objets Connectés et Services
-# Hophop - Le réveil connécté
+![Constellation header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/constellation_header.jpg)
+# Projet Constellation - Objets Connectés et Services
 
-## Team
-* AJROUD Rami - Si5 Architecture logiciel - Scrum Master
-* DIOP Mamadou - Master 2 IAM
-* MÔNIER Marhold - SI5 IHM
+## Plan
 
-## Présentation du projet : 
+* Présentation
+* Conception du logiciel
+* Conception du matériel
 
-Hophop! sera installé dans la chambre à coucher, probablement sur une table de chevet. Il s’agit d’un réveil qui utilisera la météo, l’emploi du temps, ainsi qu’une playlist de musiques pour réveiller à temps l’utilisateur, et selon une musique adaptée. A terme, il sera capable de prédire à quelle heure l’utilisateur va se lever, et pourra l’inviter à aller se coucher la veille.
+## Équipe
+* **AJROUD** Rami - Si5 Architecture logiciel - Scrum Master
+* **DIOP** Mamadou - Master 2 IAM
+* **MÔNIER** Marhold - SI5 IHM
 
-Si le temps est ensoleillé, la musique utilisée par le réveil sera joyeuse, tandis que si son emploi du temps indique une activité sportive, la musique sera motivante. Le son pourra être envoyé sur des enceintes ou tout autre appareil connecté. Durant une durée de quelques semaines, l’utilisateur devra régler l’heure de son réveil manuellement ; ensuite, le réveil proposera automatiquement une heure de réveil en fonction des expériences passées. Il lui rappellera également déjà d’aller se coucher la veille de manière à avoir autant d’heures de sommeil que nécessaire pour démarrer sa journée en forme. On suppose que l’utilisateur active le réveil avant d’aller se coucher : la durée de sommeil est donc environ la durée entre l’activation du réveil et la sonnerie effective.
+## Présentation générale: 
 
+Constellation est un ensemble d’objet connecté entre eux. Ces objets sont la planète Terre
+ainsi qu’une constellation de satellites. Chaque objets remplis une tâche bien définie et
+occupe une place différente dans la maison. Leur rôle sera de vous assister au quotidien, ils
+vous informeront des conditions météo ou vous réveilleront avant l’heure de votre rendez-vous.
+Tout cela en prenant en compte votre emploi du temps ou le temps de routes nécessaire le tout en musique grâce à Spotify.
 
-Il possède également un petit écran sur lequel sera indiqué l’heure courante, l’heure prévue de réveil, ainsi qu’un petit symbole représentant la météo du lendemain. Un petit haut-parleur sera installé pour réveiller l’utilisateur, et le prévenir de l’heure de réveil prévu le lendemain. Dans l’idéal, il possédera un micro pour pouvoir être contrôlé vocalement.
+## Description du projet:
 
-L’écran sera un écran à faible consommation d’énergie, il sera rétro-éclairé et donc visible de nuit seulement à l’appui d’un bouton. Le haut-parleur devra également consommer peu d’énergie, la puissance requise est faible car Hophop! s'utilisera en milieu silencieux. Afin de subvenir aux besoins de tout ce matériel, le réveil devra être branché sur une prise pour fonctionner.
+Notre projet se présente sous la forme de plusieurs objets connecté entre eux. Nous nous
+concentrerons ici sur deux types d’objets que nous créerons. Cependant le concept se
+décline dans une gamme plus large et nous pouvons imaginer de nouvelles utilisations.
+Constellation est composé d’un élément central, la Terre, ainsi que de multiples éléments
+spécialisés, les satellites
 
-Une interface Web (adaptée également aux appareils mobiles) permettra également de configurer le réveil, et de visualiser les différents temps de préparation en fonction des jours et des activités.
+### La Terre - Description
+![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/earth_header.jpg)
+Elle est l'élément central de notre projet. La Terre est le chef d’orchestre du projet. C’est elle
+qui va communiquer avec les services Tiers (Spotify, Google Calendar, Google Maps) afin
+de déterminer les décisions à prendre. Elle communiquera avec ses satellites pour distribuer
+ses consignes ou récupérer des informations utiles (ex: savoir si un capteur de proximité à été déclenché). Inversement, ces satellites peuvent la notifier de l’arrivée de nouvelles informations ou commandes.  
+Elle sera, en plus de contenir l’intelligence du projet, un élément de décoration pour tous les
+amateurs de science.  
+Cette sphère représentant le globe terrestre sera montée sur un support rotatif.
 
+### Les satellites
+Les satellites représentent des objets ayant un rôle bien défini et qui interagissent avec **La Terre**.
+Leurs rôles sont variés et se complètent mutuellement afin d’avoir une orchestration harmonieuse depuis l’élément central.
+Cependant, ils restent tout a fait capable de communiquer avec d'autre entités (autres objets connéctés) ou avec d'autre satellites via leurs API respectives.
+Les tâches qu’ils exécutent sont, entre autres : diffusion de flux audio, indication de la
+position de l’utilisateur, mesure des conditions météorologiques.
+Nous possédons plusieurs types de satellites, dont chacun à une fonction et des possibilitées differentes.
 
-## Scénario d’utilisation :
-
-Prérequis : Bob a une playlist musicale fournie, il utilise également Hophop! quotidiennement depuis plus d’un mois, et a tout son emploi du temps en ligne sur Google Agenda 
-
-Le soir, Bob est notifié qu’il doit aller se coucher pour être en forme le lendemain. Demain, il commence à 9h. En général, il se lève 1h avant le début de son activité, Hophop! lui annonce qu’il a prévu le réveil pour 8h. Bob ne se prononce pas, l’horaire est confirmée. Le lendemain matin, Hophop! se connecte à la météo et enregistre qu’il fait beau, il est connecté aux enceintes de sa chambre et lance une musique douce et chaude (comme le soleil), puis annonce la météo et l’activité du jour. Bob dit “hophop” et le réveil s’éteint.
-
-
-## Boitier
-
-### Contraintes mécaniques
-
-L’objet sera vraisemblablement utilisé dans la chambre à coucher, sur une table de chevet. Le principal risque est de pouvoir tomber : il faut donc qu’il résiste à des chutes d’une hauteur de 1m. Aucune résistance à l’humidité n’est requise.
-
-### Autre contrainte du boîtier:
-
-Le boîtier doit avoir des compartiments spéciaux blindé pour les haut parleurs. Ceux ci ont deux missions, éviter les perturbations électromagnétiques générées par les haut parleurs mais aussi maintenir une qualité audio suffisante à partir de haut parleurs très petits.
-
-### Finition
-
-L'appareil sera fait d'un plastique glossy de couleur.
-
-## Croquis
-
-[croquis](https://github.com/Monierv/OCS/blob/master/Documentation/resources/croquis.png)
-
-## Matériel : 
-* Ecran (faible consommation d’énergie, rétroéclairage commandé par bouton, pas besoin de couleurs)
-* Haut-parleur (faible puissance : utilisation en milieu silencieux)
-* 1 bouton ou surface capacitive : pour l’éclairage de l’écran (clic simple), pour régler l’heure (clic enfoncé), et pour activer/désactiver l’alarme (double clic)
-* Micro (optionel)
-* petit amplificateur audio (20 watt maximum)
+#### Hubble
+![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/hubble_header.jpg)
 
