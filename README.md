@@ -29,7 +29,8 @@ Constellation est composé d’un élément central, la Terre, ainsi que de mult
 spécialisés, les satellites
 
 ### La Terre - Description
-![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/earth_header.jpg)
+![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/earth_header.jpg)  
+
 Elle est l'élément central de notre projet. La Terre est le chef d’orchestre du projet. C’est elle
 qui va communiquer avec les services Tiers (Spotify, Google Calendar, Google Maps) afin
 de déterminer les décisions à prendre. Elle communiquera avec ses satellites pour distribuer
@@ -45,6 +46,10 @@ Cependant, ils restent tout a fait capable de communiquer avec d'autre entités 
 Les tâches qu’ils exécutent sont, entre autres : diffusion de flux audio, indication de la
 position de l’utilisateur, mesure des conditions météorologiques.
 Nous possédons plusieurs types de satellites, dont chacun à une fonction et des possibilitées differentes.
+
+#### Galileo-IOV PFM
+![Galileo header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/galileo_header.jpg)  
+Galileo-IOV PFMG est le premier satellite opérationnel du systeme de positionnement européen du même nom. Ce satellite portera un capteur de proximité afin de detecter la présence d'un utilisateur pres de lui. Il permettra la localisation des utilisateur a travers la maison. Il pourra aussi grace à des leds et un haut parleur, emettre des signaux lumineux ou du son. 
 
 #### Hubble
 ![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/hubble_header.jpg)
