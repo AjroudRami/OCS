@@ -3,9 +3,9 @@
 
 ## Plan
 
-* Présentation
-* [Conception du logiciel](https://github.com/Monierv/OCS/blob/master/Documentation/SOFTWARE.md)
-* [Conception des objets](https://github.com/Monierv/OCS/blob/master/Documentation/MATERIAL.md)
+1. [Présentation](https://github.com/Monierv/OCS/blob/master/README.md)
+2. [Conception du logiciel](https://github.com/Monierv/OCS/blob/master/Documentation/SOFTWARE.md)
+3. [Conception des objets](https://github.com/Monierv/OCS/blob/master/Documentation/MATERIAL.md)
 
 ## Équipe
 * **AJROUD** Rami - Si5 Architecture logiciel - Scrum Master
