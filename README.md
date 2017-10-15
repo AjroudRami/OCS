@@ -15,10 +15,10 @@
 ## Présentation générale: 
 
 Constellation est un ensemble d’objet connecté entre eux. Ces objets sont la planète Terre
-ainsi qu’une constellation de satellites. Chaque objets remplis une tâche bien définie et
+ainsi qu’une constellation de satellites. Chaque objet remplit une tâche bien définie et
 occupe une place différente dans la maison. Leur rôle sera de vous assister au quotidien, ils
 vous informeront des conditions météo ou vous réveilleront avant l’heure de votre rendez-vous.
-Tout cela en prenant en compte votre emploi du temps ou le temps de routes nécessaire le tout en musique grâce à Spotify.
+Tout cela en prenant en compte votre emploi du temps ou le temps de route nécessaire le tout en musique grâce à Spotify.
 
 ## Description du projet:
 
