@@ -38,7 +38,7 @@ suit donc l’utilisateur à travers la maison.
 puisse être réveillé et continuer d’écouter sa musique à travers la maison.
 
 #### Diagramme Use-Case
-Ci-dessous le digramme use-case correspondant aux fonctionnalité vu précédement:    
+Ci-dessous le digramme use-case correspondant aux fonctionnalités vues précédement:    
 
 ![Use-case Terre](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/use_case_terre.jpg)
 
