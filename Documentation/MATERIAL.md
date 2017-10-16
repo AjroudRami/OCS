@@ -23,7 +23,9 @@ Tout au long de la conception des objets physiques nous garderons en tete les co
 #### Contraintes esthétiques
 
 #### Contraintes environnementales
-
+ Au plan environnemental, cet objet va être positionné au niveau du chevet du lit. Cela implique des materiau pouvant supporter des éventuels chutes. Mais également ils doivent pouvoir maitriser la chaleur qui pourraient provenir des composants électriques, Un espace est mis dans le socle pour le passage des câbles d'alimentation électrique comme vous pouvez le voir dans le schema ci-dessus. 
+ ![Vue de face du socle](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/Models/socle_back.PNG)
+ 
 #### Contraintes économiques
 
 #### Production attendue
