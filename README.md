@@ -61,6 +61,6 @@ Galileo-IOV PFMG est le premier satellite opérationnel du systeme de positionne
 
 ## Stack technologique
 ### Support matériel
-![Raspberry Pi logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/logos/raspberrypi_logo.png)
-![Java logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/logos/java_logo.jpg)
-![Grove pi logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/logos/grovepi_logo.jpg)
+![Raspberry Pi logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/logos/raspberrypi_logo.png =200x50)
+![Java logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/logos/java_logo.jpg =200x50)
+![Grove pi logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/logos/grovepi_logo.jpg =200x50)
