@@ -42,7 +42,7 @@ Tout au long de la conception des objets physiques nous garderons en tete les co
 #### Contraintes économiques
 
 #### Production attendue  
-Aucune production n'est attendue pour cette objet. Il s'agit d'un projet annexe qui sera réalisé par les membres de l'équipe OCS à l'aide du matériel que nous avons à notre disposition, a savoir:
+Aucune production n'est attendue pour cet objet. Il s'agit d'un projet annexe qui sera réalisé par les membres de l'équipe OCS à l'aide du matériel que nous avons à notre disposition, a savoir:
 * Imprimante 3D
 * Raspberry Pi 3
 * Arduino Leonardo  
