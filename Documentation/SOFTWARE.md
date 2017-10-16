@@ -45,11 +45,11 @@ Ci-dessous le digramme use-case correspondant aux fonctionnalité vu précédeme
 #### Scenarii d'utilisation
 
  Scénario 1 
-C’est vendredi après-midi, Bob planifie sa séance de Jogging hebdomadaire du samedi matin afin d’être en forme pour ce début de week-end.
+- C’est vendredi après-midi, Bob planifie sa séance de Jogging hebdomadaire du samedi matin afin d’être en forme pour ce début de week-end.
 Ainsi il ajoute à son calendrier un créneau pour son jogging à 9h avec le tag “Sport”.
 Avec une durée bien définie en avance, Bob sera réveillé par une musique adapté à l’activité qui l’attend histoire d’annoncer la couleur.
 
 Scénario 2
 
-Bob a un rendez-vous pour un entretien d’embauche demain matin le soir, alors qu’il est dans sa salle, la Terre  calcule l’heure du coucher nécessaire en fonction du réveil du début son rendez-vous. La Terre ne détectant pas avec son capteur de proximité sa présence demande à son satellite s’il détecte sa présence de l’utilisateur. Son satellite répond par l'affirmative et la terre lui ordonne d’émettre un flux audio accompagné de signaux lumineux pour lui rappeler que c’est l’heure de dormir dès maintenant.
+- Bob a un rendez-vous pour un entretien d’embauche demain matin le soir, alors qu’il est dans sa salle, la Terre  calcule l’heure du coucher nécessaire en fonction du réveil du début son rendez-vous. La Terre ne détectant pas avec son capteur de proximité sa présence demande à son satellite s’il détecte sa présence de l’utilisateur. Son satellite répond par l'affirmative et la terre lui ordonne d’émettre un flux audio accompagné de signaux lumineux pour lui rappeler que c’est l’heure de dormir dès maintenant.
 
