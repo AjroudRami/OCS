@@ -45,5 +45,5 @@ Tout au long de la conception des objets physiques nous garderons en tete les co
 Aucune production n'est attendue pour cette objet. Il s'agit d'un projet annexe qui sera réalisé par les membres de l'équipe OCS à l'aide du matériel que nous avons à notre disposition, a savoir:
 * Imprimante 3D
 * Raspberry Pi 3
-* Arduino Leonardo
+* Arduino Leonardo  
 Il ne constitue en rien un engagement contractuel. A défaut d'etre fabriqué, il sera mocké.
