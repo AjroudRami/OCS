@@ -13,6 +13,37 @@ Tout au long de la conception des objets physiques nous garderons en tete les co
 ![Contraintes du matérielles](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/contraintes.jpg)
 
 
-## La Terre
+### La Terre
+#### Expression du besoin
 
-## Galileo-IOV PFM
+#### Scenarii d'utilisation
+
+#### Contraintes technologiques
+
+#### Contraintes esthétiques
+
+#### Contraintes environnementales
+
+#### Contraintes économiques
+
+#### Production attendue
+
+### Galileo-IOV PFM
+#### Expression du besoin
+
+#### Scenarii d'utilisation
+
+#### Contraintes technologiques
+
+#### Contraintes esthétiques
+
+#### Contraintes environnementales
+
+#### Contraintes économiques
+
+#### Production attendue  
+Aucune production n'est attendue pour cette objet. Il s'agit d'un projet annexe qui sera réalisé par les membres de l'équipe OCS à l'aide du matériel que nous avons à notre disposition, a savoir:
+* Imprimante 3D
+* Raspberry Pi 3
+* Arduino Leonardo
+Il ne constitue en rien un engagement contractuel. A défaut d'etre fabriqué, il sera mocké.
