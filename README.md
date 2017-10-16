@@ -59,3 +59,8 @@ Galileo-IOV PFMG est le premier satellite opérationnel du systeme de positionne
 #### Hubble
 ![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/hubble_header.jpg)
 
+## Stack technologique
+### Support matériel
+![Raspberry Pi logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/logos/raspberrypi_logo.png)
+![Java logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/logos/java_logo.jpg)
+![Grove pi logo](https://github.com/Monierv/OCS/blob/master/Documentation/resources/logos/grovepi_logo.jpg)
