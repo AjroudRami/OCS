@@ -25,7 +25,7 @@ réveil.
 jusqu’au point de l'évènement, si l’adresse est dans la description de l'événement, en
 effectuant une requête à Google Maps. Il réveillera l’utilisateur en utilisant une marge
 par défaut le cas échéant.
-- [ ] Le soir, il calcule l’heure du coucher en fonction du réveil du lendemain. Puis il sera
+- [ ] Le soir, elle calcule l’heure du coucher en fonction du réveil du lendemain. Puis il sera
 capable d’identifier l’appareil ayant détecté l’utilisateur en dernier (en scannant le
 réseau local et envoyant des requêtes aux satellites) et enverra à celui-ci un signal
 (qui sera émis par le haut-parleur ou là diode/lampe du satellite) afin de rappeler à
