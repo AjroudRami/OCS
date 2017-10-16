@@ -3,16 +3,21 @@
 
 ## Plan
 
-1. [Présentation](https://github.com/Monierv/OCS/blob/master/README.md)
-2. [Conception du logiciel](https://github.com/Monierv/OCS/blob/master/Documentation/SOFTWARE.md)
-3. [Conception des objets](https://github.com/Monierv/OCS/blob/master/Documentation/MATERIAL.md)
+* Présentation
+   * [Équipe](#Équipe)
+   * [Présentation générale](#présentation-générale)
+   * [Description du projet](#description-du-projet)
+     * [La Terre](#la-terre)
+     * [Les satellites](#les-satellites)
+* [Conception du logiciel](https://github.com/Monierv/OCS/blob/master/Documentation/SOFTWARE.md)
+* [Conception des objets](https://github.com/Monierv/OCS/blob/master/Documentation/MATERIAL.md)
 
 ## Équipe
 * **AJROUD** Rami - Si5 Architecture logiciel - Scrum Master
 * **DIOP** Mamadou - Master 2 IAM
 * **MÔNIER** Marhold - SI5 IHM
 
-## Présentation générale: 
+## Présentation générale
 
 Constellation est un ensemble d’objet connecté entre eux. Ces objets sont la planète Terre
 ainsi qu’une constellation de satellites. Chaque objet remplit une tâche bien définie et
@@ -20,7 +25,7 @@ occupe une place différente dans la maison. Leur rôle sera de vous assister au
 vous informeront des conditions météo ou vous réveilleront avant l’heure de votre rendez-vous.
 Tout cela en prenant en compte votre emploi du temps ou le temps de route nécessaire le tout en musique grâce à Spotify.
 
-## Description du projet:
+## Description du projet
 
 Notre projet se présente sous la forme de plusieurs objets connecté entre eux. Nous nous
 concentrerons ici sur deux types d’objets que nous créerons. Cependant le concept se
@@ -28,7 +33,7 @@ décline dans une gamme plus large et nous pouvons imaginer de nouvelles utilisa
 Constellation est composé d’un élément central, la Terre, ainsi que de multiples éléments
 spécialisés, les satellites
 
-### La Terre - Description
+### La Terre
 ![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/earth_header.jpg)  
 
 Elle est l'élément central de notre projet. La Terre est le chef d’orchestre du projet. C’est elle
