@@ -63,6 +63,8 @@ Le globe étant en lévitation, il est possible qu'il tombe. Il faudra donc qu'i
 
 #### Production attendue
 
+Nous nous attendons a recevoir des premiers retours sur l'objet, des modifications de nos croquis, une discussion active sur le site Fusion A360, et surtout un objet.
+
 ### Galileo-IOV PFM
 #### Expression du besoin
 
