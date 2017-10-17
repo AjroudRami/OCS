@@ -20,6 +20,7 @@ Les besoins se décomposent comme tels:
 * Ne pas perdre de temps a configurer son réveil
 * Connaitre la météo dès le réveil
 * Se reveiller avec une musique adaptée
+* Diffuser de la musique dans la maison
 
 #### Scenarii d'utilisation
 
@@ -78,4 +79,5 @@ Aucune production n'est attendue pour cet objet. Il s'agit d'un projet annexe qu
 * Imprimante 3D
 * Raspberry Pi 3
 * Arduino Leonardo  
+
 Il ne constitue en rien un engagement contractuel. A défaut d'etre fabriqué, il sera mocké.
