@@ -30,7 +30,7 @@ Les besoins se décomposent comme tels:
 
 #### Contraintes technologiques
 
-Les contraintes technologiques sont les suivantes:
+Les contraintes technologiques sont les suivantes:  
 * Le Raspberry étant un micro ordinateur, il y a un risque de surchauffe du systeme. Il faut donc y insérer des trous de ventilation.
 * Le systeme néccéssite des trou et emplacement pour les connexions (cable d'alimentation, cable ethernet, usb).
 * Le systeme doit etre intégré a la base du globe, sur la face arriere. L'emplacement est visible sur le modele solidworks du socle.
@@ -44,6 +44,7 @@ Les contraintes technologiques sont les suivantes:
 * Le socle acceuillera un haut parleur (tube sous la piece nommée socle.SLDPRT dans [Models](https://github.com/Monierv/OCS/tree/master/Models) )
 
 #### Contraintes esthétiques
+La déscription du design de l'objet est fait dans le document [Design Terre](https://github.com/Monierv/OCS/blob/master/Documentation/EARTH_DESIGN.md)
 
 * La sphere doit etre le plus sphérique possible.
 * Tout les plastiques doivent etre lisse et brillant.
@@ -64,6 +65,8 @@ Le globe étant en lévitation, il est possible qu'il tombe. Il faudra donc qu'i
 #### Production attendue
 
 Nous nous attendons a recevoir des premiers retours sur l'objet, des modifications de nos croquis, une discussion active sur le site Fusion A360, et surtout un objet.
+Les modeles solidworks que nous avons préparé sont disponible dans le dossier: 
+Nous attendons un résultat similaire.
 
 ### Galileo-IOV PFM
 #### Expression du besoin
