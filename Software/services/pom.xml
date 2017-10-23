@@ -18,6 +18,7 @@
 
     <modules>
         <module>geoloc</module>
+        <module>proximity</module>
     </modules>
 
     <properties>
