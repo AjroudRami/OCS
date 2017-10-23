@@ -8,7 +8,7 @@
     <artifactId>integration</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>ESB :: Integration</name>
+    <name>OCS :: Integration</name>
 
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>
@@ -19,4 +19,5 @@
 
     <modules>
     </modules>
+</project>
 

@@ -7,7 +7,7 @@
     <artifactId>geoloc</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>ESB :: Services :: Geoloc client</name>
+    <name>OCS :: Services :: Geoloc client</name>
 
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>
@@ -15,7 +15,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <dependencies>>
+    <dependencies>
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>

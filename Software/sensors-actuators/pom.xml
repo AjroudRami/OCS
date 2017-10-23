@@ -8,7 +8,7 @@
     <artifactId>sensors-actuators</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>ESB :: Sensors Actuators</name>
+    <name>OCS :: Sensors Actuators</name>
 
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>
@@ -18,4 +18,4 @@
 
     <modules>
     </modules>
-
+</project>
