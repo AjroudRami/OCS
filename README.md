@@ -37,7 +37,7 @@ Elle est par ailleurs un élément de décoration pour tous les amateurs de scie
 
 ### Les satellites
 Les satellites représentent des objets connectés qui interagissent principalement avec **La Terre**, mais sont également capable de communiquer entre eux via leurs API respectives.
-Les tâches qu’ils exécutent sont variées, par exemple : diffusion de flux audio, détecteur de mouvement, mesure des conditions météorologiques.
+Les tâches qu’ils exécutent sont variées, par exemple : diffusion de flux audio, détecteur de mouvement, mesure des conditions météorologiques (Fonctionnalité non implémentée dans le cadre du projet).
 
 #### Galileo-IOV PFM
 ![Galileo header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/galileo_header.jpg)  
