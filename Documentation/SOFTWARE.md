@@ -31,11 +31,10 @@ réseau local et envoyant des requêtes aux satellites) et enverra à celui-ci u
 (qui sera émis par le haut-parleur ou là diode/lampe du satellite) afin de rappeler à
 l’utilisateur qu’il est important de dormir.
 - [ ] L’utilisateur pourra choisir la Terre comme appareil de lecture de musique. La Terre
-enverra alors aux satellites sur le réseau, le flux audio. Les satellites détectant une
-présence auront pour consigne d'émettre le flux (via les haut-parleur). La musique
-suit donc l’utilisateur à travers la maison.
-- [ ] Cette dernière fonctionnalité peut être activé lors du réveil. Afin que l’utilisateur
-puisse être réveillé et continuer d’écouter sa musique à travers la maison.
+enverra alors aux satellites sur le réseau, le flux audio. 
+- [ ] Les satellites détectent la présence auront pour consigne d'émettre le flux (via les haut-parleurs). La musique
+suit donc l’utilisateur à travers la maison, elle peut être activé lors du réveil afin que l’utilisateur
+puissecontinuer d’écouter sa musique à travers la maison. (Fonctionnalité optionnelle)
 
 #### Diagramme Use-Case
 Ci-dessous le digramme use-case correspondant aux fonctionnalités vues précédement:    
@@ -47,7 +46,7 @@ Ci-dessous le digramme use-case correspondant aux fonctionnalités vues précéd
  Scénario 1 
 - C’est vendredi après-midi, Bob planifie sa séance de Jogging hebdomadaire du samedi matin afin d’être en forme pour ce début de week-end.
 Ainsi il ajoute à son calendrier un créneau pour son jogging à 9h avec le tag “Sport”.
-Avec une durée bien définie en avance, Bob sera réveillé par une musique adapté à l’activité qui l’attend histoire d’annoncer la couleur.
+Avec une durée bien définie en avance, Bob sera réveillé par une musique adapté à l’activité qui l’attend.
 
 Scénario 2
 
