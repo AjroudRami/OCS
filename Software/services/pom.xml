@@ -19,6 +19,7 @@
     <modules>
         <module>geoloc</module>
         <module>proximity</module>
+        <module>news</module>
     </modules>
 
     <properties>
