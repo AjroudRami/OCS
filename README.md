@@ -20,6 +20,7 @@
 ## Présentation générale
 
 Constellation est un ensemble d’objets connectés entre eux, représentés par la planète Terre ainsi qu’une constellation de satellites. Chaque objet remplit une tâche bien définie et occupe une place différente dans la maison. Leur rôle est d'assister l'utilisateur au quotidien : ils l'informeront des conditions météo, le réveilleront à l’heure pour ses rendez-vous. Constellation s'appuie sur l'emploi du temps et le temps de trajet nécessaire, et utilise Spotify pour trouver la musique appropriée.
+Pour aller plus loin dans la thématique du projet, la Terre pourra informer l'utilisateur des actualités par rapport à zone selectionnée (via une manipulation précise) sur le globe.
 
 ## Description du projet
 
