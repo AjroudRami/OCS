@@ -10,7 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 import java.time.format.DateTimeFormatter;
@@ -26,7 +28,18 @@ public class EventRegistryAPI implements NewsExternalApi {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String now = dtf.format(LocalDateTime.now());
 
-        String url = "http://eventregistry.org/json/event?apiKey=f11b1176-5902-4d34-8172-294c74e4b04a&_time=" + now + "&action=getEvents&eventsConceptLang=fr&eventsCount=25&eventsEventImageCount=1&eventsIncludeEventInfoArticle=true&eventsIncludeEventSocialScore=true&eventsPage=1&eventsSortBy=date&query=%7B%22$query%22:%7B%22locationUri%22:%7B%22$and%22:%5B%22http:%2F%2Fen.wikipedia.org%2Fwiki%2F" + countryName + "%22%5D%7D%7D%7D&resultType=events";
+        Properties prop = new Properties();
+        InputStream input;
+
+        try {
+
+            input = new FileInputStream("config.properties");
+            prop.load(input);
+        }
+        catch (IOException ex){
+
+        }
+            String url = "http://eventregistry.org/json/event?apiKey="+prop.getProperty("news.apiKey")+"&_time=" + now + "&action=getEvents&eventsConceptLang=fr&eventsCount=25&eventsEventImageCount=1&eventsIncludeEventInfoArticle=true&eventsIncludeEventSocialScore=true&eventsPage=1&eventsSortBy=date&query=%7B%22$query%22:%7B%22locationUri%22:%7B%22$and%22:%5B%22http:%2F%2Fen.wikipedia.org%2Fwiki%2F" + countryName + "%22%5D%7D%7D%7D&resultType=events";
 
         Request request = new Request.Builder()
                 .url(url)
