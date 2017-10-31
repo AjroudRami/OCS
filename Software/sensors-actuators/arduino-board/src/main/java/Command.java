@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
 public class Command {
+
+    private String name;
+
 }

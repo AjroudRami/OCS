@@ -6,6 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>sensors-actuators</artifactId>
+    <groupId>fr.unice.polytech.ocs.sensor-actuator</groupId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>OCS :: Sensors Actuators</name>
@@ -17,5 +18,6 @@
     </parent>
 
     <modules>
+        <module>arduino-board</module>
     </modules>
 </project>
