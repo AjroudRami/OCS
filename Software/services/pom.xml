@@ -18,7 +18,7 @@
 
     <modules>
         <module>geoloc</module>
-        <module>proximity</module>
+        <module>orientation</module>
         <module>news</module>
     </modules>
 
