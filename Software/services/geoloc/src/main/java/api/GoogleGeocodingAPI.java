@@ -8,6 +8,8 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
 import model.Location;
+
+import javax.ejb.Local;
 import java.io.IOException;
 
 public class GoogleGeocodingAPI implements API {
@@ -23,8 +25,12 @@ public class GoogleGeocodingAPI implements API {
         try {
             results = GeocodingApi.reverseGeocode(geoApiContext, new LatLng(lat, lon)).await();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            System.out.println(gson.toJson(results[0].addressComponents));
-            return null;
+            System.out.println(gson.toJson(results[0].addressComponents[0]));
+            Location[] locs = new Location[results.length];
+            for (int i = 0; i < results.length; i++) {
+                locs[i] = new Location(results[i].formattedAddress);
+            }
+            return locs;
         } catch (ApiException e) {
             e.printStackTrace();
             throw new exception.ApiException(e.getMessage());
