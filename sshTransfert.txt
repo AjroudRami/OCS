@@ -1,0 +1,13 @@
+scp -r ~/Personnal/OCS/OCS/ pi@192.168.1.6:/home/pi/ocs
+
+
+build and run
+go to the software root and run
+mvn clean package install
+
+go to the proximity service and run
+mvn tomee:run
+
+service url is written in the server log
+Change IP
+http://192.168.1.6:8080/proximity-1.0-SNAPSHOT/proximity/
