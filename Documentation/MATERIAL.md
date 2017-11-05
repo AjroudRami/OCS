@@ -17,10 +17,8 @@ Tout au long de la conception des objets physiques nous garderons en tete les co
 ### La Terre
 #### Expression du besoin
 Les besoins se décomposent comme tels:
-* Ne pas perdre de temps a configurer son réveil
-* Connaitre la météo dès le réveil
-* Se reveiller avec une musique adaptée
-* Diffuser de la musique dans la maison
+ * L'utilisateur doit pouvoir bouger la terre dans tous les sens afin de montrer une zone géographique
+ * L'orientation de la sphere servira plus tard pour d'autre fonctionnalités (controle de volume par example)
 
 #### Scenarii d'utilisation
 
