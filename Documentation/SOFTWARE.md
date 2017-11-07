@@ -8,7 +8,8 @@
 
 ## Description fonctionnelle
 ### La Terre
-#### Fonctionnalités
+#### Fonctionnalités principales
+
 Ci-dessous l'ensemble des fonctionnalités de l'objet Terre. Elles serons remplies au fur et a mesure du devellopement:
 - [ ] L’objet sera capable de se connecter au service de calendrier de l’utilisateur
 (préalablement configuré par l’utilisateur) afin de récupérer son emploi du temps.
@@ -17,14 +18,10 @@ temps en émettant des sons ou de la musique. L’utilisateur désactivera cette
 en appuyant sur la Terre ou un des satellites émettant le son (tous possèdent au
 moins un bouton principal).
 - [ ] Il pourra lire des playlists musicales (prédéfini par l’utilisateur) grâce au service
-Spotify (l’ajout d’autre service pourra être ajouté lors de future mise à jour) lors du
+Spotify (l’ajout d’autres services pourra être ajouté lors de future mise à jour) lors du
 réveil.
 - [ ] Il pourra adapter les playlists à jouer lors du réveil en fonction du type d'événement
 (dans la description de l'événement).
-- [ ] Il décidera de l’heure du déclenchement du réveil en fonction des conditions de trafic
-jusqu’au point de l'évènement, si l’adresse est dans la description de l'événement, en
-effectuant une requête à Google Maps. Il réveillera l’utilisateur en utilisant une marge
-par défaut le cas échéant.
 - [ ] Le soir, elle calcule l’heure du coucher en fonction du réveil du lendemain. Puis il sera
 capable d’identifier l’appareil ayant détecté l’utilisateur en dernier (en scannant le
 réseau local et envoyant des requêtes aux satellites) et enverra à celui-ci un signal
@@ -34,6 +31,14 @@ l’utilisateur qu’il est important de dormir.
 enverra alors aux satellites sur le réseau, le flux audio. Les satellites détectant une
 présence auront pour consigne d'émettre le flux (via les haut-parleur). La musique
 suit donc l’utilisateur à travers la maison.
+
+#### Fonctionnalités optionnelles
+
+- [ ] Il décidera de l’heure du déclenchement du réveil en fonction des conditions de trafic
+jusqu’au point de l'évènement, si l’adresse est dans la description de l'événement, en
+effectuant une requête à Google Maps. Il réveillera l’utilisateur en utilisant une marge
+par défaut le cas échéant.
+
 - [ ] Cette dernière fonctionnalité peut être activé lors du réveil. Afin que l’utilisateur
 puisse être réveillé et continuer d’écouter sa musique à travers la maison.
 

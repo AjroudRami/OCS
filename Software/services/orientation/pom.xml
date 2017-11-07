@@ -4,10 +4,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.unice.polytech.ocs.services</groupId>
-    <artifactId>proximity</artifactId>
+    <artifactId>orientation</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>OCS :: Services :: Proximity API</name>
+    <name>OCS :: Services :: Orientation API</name>
 
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>

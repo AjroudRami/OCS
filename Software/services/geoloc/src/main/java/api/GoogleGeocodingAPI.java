@@ -28,7 +28,7 @@ public class GoogleGeocodingAPI implements API {
             System.out.println(gson.toJson(results[0].addressComponents[0]));
             Location[] locs = new Location[results.length];
             for (int i = 0; i < results.length; i++) {
-                locs[i] = new Location(results[i].formattedAddress);
+                locs[i] = Location.fromGeocodingResult(results[i]);
             }
             return locs;
         } catch (ApiException e) {

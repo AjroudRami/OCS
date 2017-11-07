@@ -23,20 +23,19 @@ Constellation est un ensemble d’objets connectés entre eux, représentés par
 
 ## Description du projet
 
-Constellation est composé d’un élément central, la Terre, ainsi que de multiples éléments
-spécialisés, les satellites.
-
-Constellation se présente sous la forme de plusieurs objets connectés entre eux : un élément central (la Terre), ainsi que de multiples éléments spécialisés qui vont interagir avec (les satellites). Notre projet peut se décliner en une gamme très large d'objets connectés ; cependant, nous nous concentrerons ici sur 2 objets simplement.
+Constellation se présente sous la forme de plusieurs objets connectés entre eux : un élément central (la Terre), ainsi que de multiples éléments spécialisés qui vont interagir avec (les satellites). Notre projet peut se décliner en une gamme très large d'objets connectés ; cependant, nous nous concentrerons seulement sur deux d'entre eux.
 
 ### La Terre
 ![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/earth_header.jpg)  
 
-Elément central de notre projet, La Terre en est le chef d’orchestre. Elle communique avec les services Tiers (Spotify, Google Calendar, Google Maps) afin de déterminer les décisions à prendre. Elle communiquera avec les satellites pour distribuer ses consignes ou récupérer des informations utiles, comme les informations des capteurs. Ces satellites peuvent également la notifier de l’arrivée de nouvelles informations ou commandes.  
-Elle est par ailleurs un élément de décoration pour tous les amateurs de science. Cette sphère représentant le globe terrestre sera montée sur un support rotatif.
+Elément central de notre projet, La Terre en est le chef d’orchestre. Elle communique avec les services Tiers (Spotify, Google Calendar, Google Maps) afin de déterminer les décisions à prendre.  
+Elle remplira dans un premier temps des fonctionnalité lié à l'objet. L'objet est un globe terrestre, on déduit naturellement des fonctionnalité liée, notament des fonctionnalité lié a la géographie.  
+Dans un second temps, elle communiquera avec les satellites pour distribuer ses consignes ou récupérer des informations utiles, comme les informations des capteurs. Ces satellites peuvent également la notifier de l’arrivée de nouvelles informations ou commandes.  
+Elle est par ailleurs un élément de décoration pour tous les amateurs de science. Cette sphère représentant le globe terrestre ne sera simplement posé sur un support creux sans liens avec le globe. Sa manipulation permettra d'utiliser ses fonctionnalités en détéctant son orientation via l'utilisation d'une centrale inertielle intégrée.
 
 ### Les satellites
 Les satellites représentent des objets connectés qui interagissent principalement avec **La Terre**, mais sont également capable de communiquer entre eux via leurs API respectives.
-Les tâches qu’ils exécutent sont variées, par exemple : diffusion de flux audio, détecteur de mouvement, mesure des conditions météorologiques.
+Les tâches qu’ils exécutent sont variées, par exemple : diffusion de flux audio, détecteur de mouvement, mesure des conditions météorologiques (Fonctionnalité non implémentée dans le cadre du projet).
 
 #### Galileo-IOV PFM
 ![Galileo header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/galileo_header.jpg)  
@@ -44,6 +43,7 @@ Galileo-IOV PFMG est le premier satellite opérationnel du systeme de positionne
 
 #### Hubble
 ![Hubble header](https://github.com/Monierv/OCS/blob/master/Documentation/resources/img/hubble_header.jpg)
+Fonctionnalités a venir.
 
 ## Stack technologique
 ### Support matériel
