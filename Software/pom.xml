@@ -70,3 +70,10 @@
 
 </project>
 
+<!--
+<resources>
+<resource>
+    <excludes>./arduino_firmware</excludes>
+</resource>
+</resources>
+!-->
