@@ -7,7 +7,7 @@
     <artifactId>orientation</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>OCS :: Services :: Orientation API</name>
+    <name>OCS :: Constellation :: Services :: Orientation API</name>
 
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>
@@ -20,11 +20,6 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20170516</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.unice.polytech.ocs.sensor-actuator.arduino</groupId>
-            <artifactId>arduino-board</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

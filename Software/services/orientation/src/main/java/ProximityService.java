@@ -1,14 +1,18 @@
-import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Path("/proximity/")
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProximityService {
     private Logger LOGGER = Logger.getLogger(this.getClass().getSimpleName());
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public int getOne(){
+        return 1;
+    }
+    /**
     @EJB
     private ArduinoBoard board;
 
@@ -27,4 +31,5 @@ public class ProximityService {
         }
         return orientation;
     }
+    **/
 }

@@ -8,7 +8,7 @@
     <artifactId>services</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>OCS :: Services</name>
+    <name>OCS :: Constellation :: Services</name>
 
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>

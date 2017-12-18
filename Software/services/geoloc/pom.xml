@@ -7,7 +7,7 @@
     <artifactId>geoloc</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>OCS :: Services :: Geoloc client</name>
+    <name>OCS :: Constellation :: Services :: Geoloc client</name>
 
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>

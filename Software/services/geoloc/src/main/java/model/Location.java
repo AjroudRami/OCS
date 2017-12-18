@@ -52,7 +52,7 @@ public class Location {
         return location;
     }
 
-    private boolean containsType(AddressComponentType[] types, AddressComponentType searchType) {
+    private static boolean containsType(AddressComponentType[] types, AddressComponentType searchType) {
         for (AddressComponentType type: types) {
             if (type.equals(searchType)) {
                 return true;
