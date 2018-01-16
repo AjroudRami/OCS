@@ -5,28 +5,27 @@
 			     http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+    <name>OCS :: Constellation :: Raspberry Pi</name>
     <groupId>fr.unice.polytech.ocs</groupId>
     <artifactId>Constellation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
-    <name>OCS :: Constellation</name>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>9</maven.compiler.target>
+        <maven.compiler.source>9</maven.compiler.source>
         <versions.maven.compiler>3.6.1</versions.maven.compiler>
-        <versions.java>1.8</versions.java>
+        <versions.java>9</versions.java>
         <versions.tomee>7.0.3</versions.tomee>
     </properties>
 
     <modules>
-        <module>embeddedApp</module>
+        <module>sensors-actuators</module>
         <module>services</module>
-        <module>tests</module>
     </modules>
+
 
     <dependencies>
         <dependency>
@@ -67,13 +66,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
-
-<!--
-<resources>
-<resource>
-    <excludes>./arduino_firmware</excludes>
-</resource>
-</resources>
-!-->

@@ -1,18 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+			     http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fr.unice.polytech.ocs.sensor-actuator.arduino</groupId>
-    <artifactId>arduino-board</artifactId>
+    <artifactId>sensors-actuators</artifactId>
+    <groupId>fr.unice.polytech.ocs.sensor-actuator</groupId>
     <version>1.0-SNAPSHOT</version>
-    <name>OCS :: Constellation :: Embedded App :: Sensors Actuators :: Arduino Board</name>
     <packaging>pom</packaging>
+    <name>OCS :: Constellation :: Sensors Actuators</name>
+
     <parent>
-        <groupId>fr.unice.polytech.ocs.sensor-actuator</groupId>
-        <artifactId>sensors-actuators</artifactId>
+        <groupId>fr.unice.polytech.ocs</groupId>
+        <artifactId>embeddedApp</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <modules>
+        <module>arduino-board</module>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -28,4 +35,3 @@
         </dependency>
     </dependencies>
 </project>
-
