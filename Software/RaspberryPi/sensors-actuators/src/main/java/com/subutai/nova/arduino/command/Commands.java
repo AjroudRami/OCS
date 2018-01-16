@@ -13,15 +13,8 @@ public class Commands {
     public static final byte RES8 = 8;
     public static final byte RES9 = 9;
 
-    public static final byte ACCELERATE = 10;
-    public static final byte BRAKE = 11;
-    public static final byte TURN = 12;
-    public static final byte SET_ESP = 13;
-    public static final byte SET_ABS = 14;
-    public static final byte SET_FRONT_LIGHT = 15;
-    public static final byte SET_BLINK = 16;
-    public static final byte GET_SPEED = 17;
-    public static final byte GET_CONSUMPTION = 18;
-
-
+    public static final byte REQ_YPR = 10;
+    public static final byte BUZZ = 11;
+    public static final byte LED_ON = 12;
+    public static final byte LED_OFF = 13;
 }
