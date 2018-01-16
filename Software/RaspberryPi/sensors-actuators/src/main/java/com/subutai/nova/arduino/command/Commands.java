@@ -14,7 +14,7 @@ public class Commands {
     public static final byte RES9 = 9;
 
     public static final byte REQ_YPR = 10;
-    public static final byte BUZZ = 11;
+    public static final byte STREAM_YPR = 11;
     public static final byte LED_ON = 12;
     public static final byte LED_OFF = 13;
 }
