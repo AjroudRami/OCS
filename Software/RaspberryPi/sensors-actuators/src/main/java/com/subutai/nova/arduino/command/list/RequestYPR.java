@@ -6,7 +6,7 @@ import com.subutai.nova.arduino.command.Commands;
 public class RequestYPR extends ArduinoCallbackCommand {
 
     public RequestYPR() {
-        super.id = Commands.REQ_YPR;
+        super.id = (byte) Commands.REQ_YPR;
     }
 
     @Override

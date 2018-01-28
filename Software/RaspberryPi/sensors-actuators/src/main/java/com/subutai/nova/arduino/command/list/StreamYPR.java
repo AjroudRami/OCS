@@ -9,8 +9,9 @@ public class StreamYPR extends ArduinoCommand {
 
     private boolean stream;
     public StreamYPR(boolean stream) {
-        super.id = Commands.STREAM_YPR;
+        super.id = (byte) Commands.STREAM_YPR;
         this.stream = stream;
+
     }
 
     @Override

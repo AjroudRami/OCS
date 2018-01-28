@@ -6,7 +6,7 @@ import com.subutai.nova.arduino.command.Commands;
 public class LedOff extends ArduinoCommand {
 
     public LedOff() {
-        super.id = Commands.LED_OFF;
+        super.id = (byte) Commands.LED_OFF;
     }
 
     @Override

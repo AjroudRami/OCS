@@ -10,7 +10,7 @@ public class LedOn extends ArduinoCommand {
     private int color;
 
     public LedOn(int color) {
-        super.id = Commands.LED_ON;
+        super.id = (byte) Commands.LED_ON;
         this.color = color;
     }
 
