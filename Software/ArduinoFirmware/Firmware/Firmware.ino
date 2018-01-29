@@ -77,6 +77,8 @@ void setup() {
     pinMode(LED_GREEN, OUTPUT);
     pinMode(LED_BLUE, OUTPUT);
 
+    analogWrite(LED_RED, 255);
+
     //Init bluetooth serial
     mySerial.begin(9600);
 
