@@ -4,15 +4,12 @@ import com.pi4j.io.serial.SerialDataEvent;
 import com.pi4j.io.serial.SerialDataEventListener;
 import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
 import com.subutai.nova.arduino.command.ArduinoCommand;
-import com.subutai.nova.arduino.command.list.LedOff;
-import com.subutai.nova.arduino.command.list.LedOn;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.DependsOn;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import java.awt.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +27,7 @@ public class ArduinoCommander implements SerialDataEventListener {
     @PostConstruct
     private void init(){
         registry = new CallbackRegistry();
-        /** Initialization color signal **/
+        /** Initialization color signal
         try {
             Thread.sleep(500);
             sendCommand(new LedOn(Color.RED.getRGB()));
@@ -40,7 +37,7 @@ public class ArduinoCommander implements SerialDataEventListener {
             sendCommand(new LedOff());
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+         } **/
     }
 
     public boolean sendCommand(ArduinoCommand command){
