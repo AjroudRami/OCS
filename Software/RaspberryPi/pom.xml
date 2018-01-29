@@ -23,7 +23,6 @@
 
     <modules>
         <module>sensors-actuators</module>
-        <module>services</module>
     </modules>
 
 

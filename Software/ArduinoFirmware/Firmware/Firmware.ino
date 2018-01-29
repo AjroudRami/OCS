@@ -105,13 +105,15 @@ void setup() {
     Serial.println(F("Initializing I2C devices..."));
     #endif
     mpu.initialize();
+    Serial.println("KOK");
 
     // verify connection
     #ifdef OUTPUT_LOGS
     Serial.println(F("Testing device connections..."));
     Serial.println(mpu.testConnection() ? F("MPU6050 connection successful") : F("MPU6050 connection failed"));
     #endif
-    
+
+    Serial.println("OK");
     // load and configure the DMP
     #ifdef OUTPUT_LOGS
     Serial.println(F("Initializing DMP..."));
@@ -136,7 +138,7 @@ void setup() {
         #ifdef OUTPUT_LOGS
         Serial.println(F("Enabling interrupt detection (Arduino external interrupt 0)..."));
         #endif
-        attachInterrupt(4, dmpDataReady, RISING);
+        attachInterrupt(7, dmpDataReady, RISING);
         mpuIntStatus = mpu.getIntStatus();
 
         // set our DMP Ready flag so the main loop() function knows it's okay to use it
