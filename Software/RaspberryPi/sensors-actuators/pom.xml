@@ -8,7 +8,7 @@
     <artifactId>sensors-actuators</artifactId>
     <groupId>fr.unice.polytech.ocs.sensor-actuator</groupId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
     <name>OCS :: Constellation :: Sensors Actuators</name>
 
     <parent>
