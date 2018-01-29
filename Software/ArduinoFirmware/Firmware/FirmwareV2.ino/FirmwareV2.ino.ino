@@ -34,13 +34,17 @@ void loop() {
 
 // Empty the Serial buffer and fill the commandBuffer
 void pollCommand(){
-  int commandLength = mySerial.available();
-  if(commandLength){
-    for(int i = 0; i < commandLength; i++) {
-      byte received = mySerial.read();
-      commandBuff[i] = received;
-      Serial.print(commandBuff[i]);
-    }
+  if(mySerial.available()){
+    int i = 0;
+      Serial.print("length :");
+      Serial.println(commandLength);
+      while(mySerial.available()){
+        byte received = mySerial.read();
+        commandBuff[i] = received;
+        Serial.print(commandBuff[i]);
+        Serial.print(" ");
+        i++;
+      }
     Serial.println("|");
     commandReceived = true;
   } else {
