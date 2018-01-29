@@ -1,6 +1,7 @@
 package com.subutai.nova.arduino;
 
 import com.pi4j.io.serial.*;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -32,7 +33,7 @@ public class ArduinoBoard {
             //       except the 3B, it will return "/dev/ttyAMA0".  For Raspberry Pi
             //       model 3B may return "/dev/ttyS0" or "/dev/ttyAMA0" depending on
             //       environment configuration.
-            config.device("/dev/ttyACM0")
+            config.device("/dev/rfcomm1")
                     .baud(Baud._38400)
                     .dataBits(DataBits._8)
                     .parity(Parity.NONE)
