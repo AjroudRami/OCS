@@ -1,4 +1,6 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.arduino.ws;
+
+import com.subutai.nova.arduino.ws.entities.LedRequest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -14,5 +16,5 @@ public interface LedOn {
 
 
     @POST
-    Response computePath();
+    Response ledOn(LedRequest request);
 }

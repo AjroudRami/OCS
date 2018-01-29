@@ -228,6 +228,7 @@ void pollCommand(){
     for(int i = 0; i < commandLength; i++) {
       byte received = mySerial.read();
       commandBuff[i] = received;
+      Serial.println(commandBuff[i]);
     }
     commandReceived = true;
   } else {

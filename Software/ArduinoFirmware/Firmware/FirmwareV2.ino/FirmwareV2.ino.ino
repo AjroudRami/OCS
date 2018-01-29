@@ -18,7 +18,11 @@ void setup() {
   pinMode(LED_GREEN, OUTPUT);
   pinMode(LED_BLUE, OUTPUT);
 
+analogWrite(LED_BLUE, 255);
   mySerial.begin(9600);
+  Serial.begin(38400);
+    while (!Serial);
+  Serial.println("Serial OK");
 
 }
 
@@ -35,7 +39,9 @@ void pollCommand(){
     for(int i = 0; i < commandLength; i++) {
       byte received = mySerial.read();
       commandBuff[i] = received;
+      Serial.print(commandBuff[i]);
     }
+    Serial.println("|");
     commandReceived = true;
   } else {
     commandReceived = false;
