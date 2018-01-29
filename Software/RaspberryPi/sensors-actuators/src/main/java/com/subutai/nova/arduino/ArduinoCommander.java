@@ -8,6 +8,7 @@ import com.subutai.nova.arduino.command.ArduinoCommand;
 import javax.annotation.PostConstruct;
 import javax.ejb.*;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +42,7 @@ public class ArduinoCommander implements SerialDataEventListener {
     public boolean sendCommand(ArduinoCommand command){
         LOGGER.log(Level.INFO, "Sending command " + command.getId());
         try {
+            LOGGER.log(Level.INFO, "parsed command: " + Arrays.toString(command.parseCommand()));
             board.write(command.parseCommand());
         } catch (IOException e) {
             LOGGER.log(Level.WARNING, "IOException raised while sending command: " + command.getId());
