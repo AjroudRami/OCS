@@ -6,14 +6,12 @@ import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
 import com.subutai.nova.arduino.command.ArduinoCommand;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.DependsOn;
-import javax.ejb.EJB;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import javax.ejb.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@LocalBean
 @Startup
 @Singleton
 @DependsOn("ArduinoBoard")
@@ -28,15 +26,15 @@ public class ArduinoCommander implements SerialDataEventListener {
     private void init(){
         registry = new CallbackRegistry();
         /** Initialization color signal
-        try {
-            Thread.sleep(500);
-            sendCommand(new LedOn(Color.RED.getRGB()));
-            Thread.sleep(1000);
-            sendCommand(new LedOn(Color.GREEN.getRGB()));
-            Thread.sleep(1000);
-            sendCommand(new LedOff());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+         try {
+         Thread.sleep(500);
+         sendCommand(new LedOn(Color.RED.getRGB()));
+         Thread.sleep(1000);
+         sendCommand(new LedOn(Color.GREEN.getRGB()));
+         Thread.sleep(1000);
+         sendCommand(new LedOff());
+         } catch (InterruptedException e) {
+         e.printStackTrace();
          } **/
     }
 
