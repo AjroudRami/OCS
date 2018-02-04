@@ -1,4 +1,7 @@
-import com.sun.org.apache.xpath.internal.operations.Or;
+package com.subutai.nova.arduino;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 public class Orientation {
 
@@ -37,6 +40,21 @@ public class Orientation {
         orientation.pitch = pitch;
         orientation.roll = roll;
         orientation.yaw = yaw;
+        return orientation;
+    }
+
+    public static Orientation fromBytes(byte[] bytes) {
+        Orientation orientation = new Orientation();
+        byte[] yawBuff = new byte[4];
+        byte[] pitchBuff = new byte[4];
+        byte[] rollBuff = new byte[4];
+        ByteArrayUtil.copy(bytes, yawBuff, 0, 0, 4);
+        ByteArrayUtil.copy(bytes, pitchBuff, 4, 0, 4);
+        ByteArrayUtil.copy(bytes, rollBuff, 8, 0, 4);
+
+        orientation.yaw = ByteBuffer.wrap(yawBuff).order(ByteOrder.LITTLE_ENDIAN).getFloat();
+        orientation.pitch = ByteBuffer.wrap(pitchBuff).order(ByteOrder.LITTLE_ENDIAN).getFloat();
+        orientation.roll = ByteBuffer.wrap(rollBuff).order(ByteOrder.LITTLE_ENDIAN).getFloat();
         return orientation;
     }
 

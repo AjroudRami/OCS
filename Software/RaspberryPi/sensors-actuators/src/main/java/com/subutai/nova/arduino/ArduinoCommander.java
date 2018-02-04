@@ -29,9 +29,9 @@ public class ArduinoCommander implements SerialDataEventListener {
         /** Initialization color signal
          try {
          Thread.sleep(500);
-         sendCommand(new LedOn(Color.RED.getRGB()));
+         sendCommand(new LedWS(Color.RED.getRGB()));
          Thread.sleep(1000);
-         sendCommand(new LedOn(Color.GREEN.getRGB()));
+         sendCommand(new LedWS(Color.GREEN.getRGB()));
          Thread.sleep(1000);
          sendCommand(new LedOff());
          } catch (InterruptedException e) {

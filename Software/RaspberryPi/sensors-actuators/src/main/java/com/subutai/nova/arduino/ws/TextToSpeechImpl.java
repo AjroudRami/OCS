@@ -4,7 +4,7 @@ import com.subutai.nova.arduino.ws.entities.ReadRequest;
 
 import javax.ws.rs.core.Response;
 
-public class ReadTextImpl implements ReadText {
+public class TextToSpeechImpl implements TextToSpeechWS {
     @Override
     public Response readText(ReadRequest request) {
         return Response.ok().build();

@@ -10,9 +10,9 @@ import java.awt.*;
 import java.util.logging.Logger;
 
 @Stateless
-public class LedOnImpl implements LedOn {
+public class LedImpl implements LedWS {
 
-    private static Logger LOGGER = Logger.getLogger(LedOnImpl.class.getName());
+    private static Logger LOGGER = Logger.getLogger(LedImpl.class.getName());
 
     @EJB
     ArduinoCommander commander;
