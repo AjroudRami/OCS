@@ -83,6 +83,7 @@ public class ArduinoCommander implements SerialDataEventListener {
     public void dataReceived(SerialDataEvent serialDataEvent) {
         try {
             byte[] rawResponse = serialDataEvent.getBytes();
+            LOGGER.info("received: " + Arrays.toString(rawResponse));
             CommandResponse response = CommandResponse.fromBytes(rawResponse);
             registry.notifyResponse(response);
         } catch (IOException e) {
