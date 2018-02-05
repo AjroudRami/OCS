@@ -10,7 +10,7 @@ import com.subutai.nova.arduino.ws.entities.BatteryState;
 import javax.ejb.EJB;
 import javax.ws.rs.core.Response;
 
-public class BatteryStateBean implements BatteryStateWS, CommandCallback {
+public class BatteryStateBean implements BatteryStateWS {
 
     @EJB
     ArduinoCommander commander;
@@ -18,15 +18,17 @@ public class BatteryStateBean implements BatteryStateWS, CommandCallback {
     private long startTime = 0;
     private long TIMEOUT = 500;
     private BatteryState state;
+    private CallbackHandler handler;
 
 
     @Override
     public Response getBatteryState() {
         state = null;
+        handler = new CallbackHandler();
         RequestBatteryState request = new RequestBatteryState();
         startTime = System.currentTimeMillis();
         response = false;
-        request.setCommandCallback(this);
+        request.setCommandCallback(handler);
         commander.sendCommand(request);
         while (!response || (System.currentTimeMillis() - startTime < TIMEOUT)) ;
 
@@ -36,14 +38,19 @@ public class BatteryStateBean implements BatteryStateWS, CommandCallback {
         return Response.status(500).entity("Sensor did not respond").build();
     }
 
-    @Override
-    public void onSuccess(CommandResponse response) {
-        state = BatteryState.fromBytes(response.getBytes());
-        this.response = true;
-    }
+    private class CallbackHandler implements CommandCallback {
+        CallbackHandler() {
+        }
 
-    @Override
-    public void onFailure(FailureResponse response) {
-        this.response = true;
+        @Override
+        public void onSuccess(CommandResponse resp) {
+            state = BatteryState.fromBytes(resp.getBytes());
+            response = true;
+        }
+
+        @Override
+        public void onFailure(FailureResponse resp) {
+            response = true;
+        }
     }
 }
