@@ -81,23 +81,23 @@ void commandYPR(){
   float2Bytes(1.23, yaw);
   float2Bytes(4.56, pitch);
   float2Bytes(7.89, roll);
-  byte response[16];
+  byte response[15];
   response[0] = commandBuff[0];
   response[1] = commandBuff[1];
   response[2] = commandBuff[2];
-  response[3] = commandBuff[3];
-  response[4] = commandBuff[4];
-  response[5] = yaw[0];
-  response[6] = yaw[1];
-  response[7] = yaw[2];
-  response[8] = yaw[3];
-  response[9] = yaw[3];
-      response[10] = yaw[3];
-        response[11] = yaw[3];
-          response[12] = yaw[3];
-            response[13] = yaw[3];
-              response[14] = yaw[3];
-                response[15] = yaw[3];
+  response[3] = yaw[0];
+  response[4] = yaw[1];
+  response[5] = yaw[2];
+  response[6] = yaw[3];
+  response[7] = pitch[0];
+  response[8] = pitch[1];
+  response[9] = pitch[2];
+  response[10] = pitch[3];
+  response[11] = roll[0];
+  response[12] = roll[1];
+  response[13] = roll[2];
+  response[14] = roll[3];
+  sendResponse(response, 15);
 }
 
 void commandStreamYPR(){
