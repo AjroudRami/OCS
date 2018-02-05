@@ -1,6 +1,7 @@
 package com.subutai.nova.arduino.ws;
 
 import com.subutai.nova.arduino.*;
+import com.subutai.nova.arduino.command.CommandResponse;
 import com.subutai.nova.arduino.command.list.RequestYPR;
 
 import javax.ejb.EJB;

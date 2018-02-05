@@ -1,6 +1,7 @@
 package com.subutai.nova.arduino;
 
 import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
+import com.subutai.nova.arduino.command.CommandResponse;
 
 import java.util.concurrent.*;
 
