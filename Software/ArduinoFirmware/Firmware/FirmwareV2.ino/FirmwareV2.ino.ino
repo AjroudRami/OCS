@@ -6,12 +6,14 @@ SoftwareSerial mySerial(10, 11); // RX pin on arduino pin 10, TX pin on arduino 
 #define LED_RED 3
 #define LED_GREEN 5
 #define LED_BLUE 6
+#define BATTERY_PIN 4
 
 boolean commandReceived = false;
 byte commandBuff[64];
 int commandLength;
 
 boolean streamYPR = false;
+float batteryState;
 
 void setup() {
   pinMode(LED_RED, OUTPUT);
@@ -27,9 +29,15 @@ void setup() {
 }
 
 void loop() {
+  pollData();
   pollCommand();
   executeCommand();
   stream();
+}
+
+
+void pollData(){
+  batteryState = batteryStateValue(analogRead(BATTERY_PIN));
 }
 
 // Empty the Serial buffer and fill the commandBuffer
@@ -61,7 +69,7 @@ void executeCommand(){
              break;
     case 12: commandLedOn();
              break;
-    case 13: commandLedOff();
+    case 13: commandBatteryState();
              break;
     default: break;
   }
@@ -109,6 +117,15 @@ void commandStreamYPR(){
   }
 }
 
+void commandBatteryState() {
+  byte response[4];
+  response[0] = commandBuff[0];
+  response[1] = commandBuff[1];
+  response[2] = commandBuff[2];
+  response[3] = commandBuff[3];
+  sendResponse(response, 4);
+}
+
 void commandLedOn(){
   byte red = commandBuff[3];
   byte green = commandBuff[4];
@@ -128,7 +145,7 @@ void stream(){
   
 }
 
-byte batteryState(int sensorValue){
+byte batteryStateValue(int sensorValue){
   float voltage = sensorValue * (5.0 / 1023.0);
   if (voltage < 3.4) {
     return 0;
@@ -145,6 +162,11 @@ void sendResponse(byte* response, int len){
     mySerial.write(response[i]);
   }
 }
+
+
+// ==========================================================================
+// ========================= Type conversions ===============================
+// ==========================================================================
 
 // Type to byte array
 void float2Bytes(float val,byte* bytes_array){
