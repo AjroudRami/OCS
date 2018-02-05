@@ -1,4 +1,7 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.arduino.command;
+
+import com.subutai.nova.arduino.BinaryConverter;
+import com.subutai.nova.arduino.ByteArrayUtil;
 
 public class CommandResponse {
 
