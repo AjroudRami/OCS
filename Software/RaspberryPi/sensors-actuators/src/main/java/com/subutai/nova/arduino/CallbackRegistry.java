@@ -3,7 +3,9 @@ package com.subutai.nova.arduino;
 import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
 import com.subutai.nova.arduino.command.CommandResponse;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class CallbackRegistry {
 
@@ -26,7 +28,7 @@ public class CallbackRegistry {
     }
 
     public synchronized void notifyResponse(CommandResponse response) {
-        int id = response.getId();
+        short id = response.getCallbackId();
         ArduinoCallbackCommand command = this.commands[id];
         command.onSuccess(response);
         this.commands[id] = null;
