@@ -6,7 +6,7 @@ SoftwareSerial mySerial(10, 11); // RX pin on arduino pin 10, TX pin on arduino 
 #define LED_RED 3
 #define LED_GREEN 5
 #define LED_BLUE 6
-#define BATTERY_PIN 4
+#define BATTERY_PIN 3
 
 boolean commandReceived = false;
 byte commandBuff[64];
@@ -81,6 +81,7 @@ void executeCommand(){
 // ====================================================================
 
 void commandYPR(){
+  Serial.println("Command: RequestYPR");
   byte ln = commandBuff[1];
   byte callbackId[2] = {commandBuff[2], commandBuff[3]};
   byte yaw[4];
@@ -109,6 +110,7 @@ void commandYPR(){
 }
 
 void commandStreamYPR(){
+  Serial.println("Command: streamYPR");
   byte activeStream = commandBuff[2];
   if (activeStream) {
     streamYPR = true;
@@ -118,6 +120,7 @@ void commandStreamYPR(){
 }
 
 void commandBatteryState() {
+  Serial.println("Command: BatteryState");
   byte response[4];
   response[0] = commandBuff[0];
   response[1] = commandBuff[1];
@@ -127,18 +130,13 @@ void commandBatteryState() {
 }
 
 void commandLedOn(){
+  Serial.println("Command: ledOn");
   byte red = commandBuff[3];
   byte green = commandBuff[4];
   byte blue = commandBuff[5];
   analogWrite(LED_RED, red);
   analogWrite(LED_GREEN, green);
   analogWrite(LED_BLUE, blue);
-}
-
-void commandLedOff(){
-  analogWrite(LED_RED, 0);
-  analogWrite(LED_GREEN, 0);
-  analogWrite(LED_BLUE, 0);
 }
 
 void stream(){
@@ -158,9 +156,14 @@ byte batteryStateValue(int sensorValue){
 }
 
 void sendResponse(byte* response, int len){
+   Serial.print("Sending response:");
   for(int i = 0; i < len; i++) {
+    Serial.print(" ");
+    Serial.print(response[i]);
     mySerial.write(response[i]);
   }
+  Serial.print(" " + len);
+  Serial.println(" bytes sent!");
 }
 
 

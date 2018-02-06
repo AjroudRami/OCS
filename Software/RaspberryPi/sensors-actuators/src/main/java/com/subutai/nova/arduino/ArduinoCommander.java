@@ -27,6 +27,7 @@ public class ArduinoCommander implements SerialDataEventListener {
     @PostConstruct
     private void init(){
         registry = new CallbackRegistry();
+        board.registerDataListener(this);
     }
 
     public boolean sendCommand(ArduinoCommand command){

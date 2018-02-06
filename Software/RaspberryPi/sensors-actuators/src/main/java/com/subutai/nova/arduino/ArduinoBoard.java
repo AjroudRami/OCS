@@ -62,6 +62,10 @@ public class ArduinoBoard {
         return serial.read(i);
     }
 
+    public void registerDataListener(SerialDataEventListener listener) {
+        this.serial.addListener(listener);
+    }
+
     public InputStream getInputStream() {
         return serial.getInputStream();
     }
