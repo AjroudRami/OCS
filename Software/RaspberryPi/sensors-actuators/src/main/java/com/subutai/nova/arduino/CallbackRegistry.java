@@ -23,7 +23,7 @@ public class CallbackRegistry {
             throw new CallbackRegistryException();
         }
         command.setCallbackId(slotID);
-        System.out.println("Register ID : " + slotID);
+        System.out.println("Register ID : " + slotID + " at " + System.currentTimeMillis());
         this.commands[slotID] = command;
         makeTimeout(slotID);
     }
@@ -58,6 +58,7 @@ public class CallbackRegistry {
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         scheduledExecutorService.schedule(() -> {
             slotTimeout(slotId);
+            System.out.println("LOG: Slot: " + slotId + " expired at " + System.currentTimeMillis());
             scheduledExecutorService.shutdownNow();
         }, SLOT_TIMEOUT, TimeUnit.MILLISECONDS);
     }
