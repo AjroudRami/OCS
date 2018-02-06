@@ -30,7 +30,7 @@ public class BatteryStateBean implements BatteryStateWS {
         response = false;
         request.setCommandCallback(handler);
         commander.sendCommand(request);
-        while (!response || (System.currentTimeMillis() - startTime < TIMEOUT)) ;
+        while (!response || (System.currentTimeMillis() - startTime > TIMEOUT)) ;
 
         if (state != null) {
             return Response.ok().entity(state).build();

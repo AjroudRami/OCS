@@ -34,7 +34,7 @@ public class OrientationImpl implements OrientationWS {
         RequestYPR request = new RequestYPR();
         request.setCommandCallback(handler);
         commander.sendCommand(request);
-        while (!response || (System.currentTimeMillis() - startTime < TIMEOUT)) ;
+        while (!response || (System.currentTimeMillis() - startTime > TIMEOUT)) ;
 
         if (orientation != null) {
             return Response.ok().entity(orientation).build();
