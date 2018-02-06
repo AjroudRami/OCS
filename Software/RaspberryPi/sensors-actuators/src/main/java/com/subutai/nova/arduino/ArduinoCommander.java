@@ -27,17 +27,6 @@ public class ArduinoCommander implements SerialDataEventListener {
     @PostConstruct
     private void init(){
         registry = new CallbackRegistry();
-        /** Initialization color signal
-         try {
-         Thread.sleep(500);
-         sendCommand(new LedWS(Color.RED.getRGB()));
-         Thread.sleep(1000);
-         sendCommand(new LedWS(Color.GREEN.getRGB()));
-         Thread.sleep(1000);
-         sendCommand(new LedOff());
-         } catch (InterruptedException e) {
-         e.printStackTrace();
-         } **/
     }
 
     public boolean sendCommand(ArduinoCommand command){
@@ -69,10 +58,14 @@ public class ArduinoCommander implements SerialDataEventListener {
             registry.registerCallbackCommand(command);
             board.write(command.getDescription());
         } catch (IOException e) {
+            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
             command.onFailure(FailureResponse.IOException);
             registry.removeCallback(command);
             return false;
         } catch (CallbackRegistryException e) {
+            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
             command.onFailure(FailureResponse.RegistryError);
             return false;
         }

@@ -2,7 +2,7 @@ package com.subutai.nova.arduino;
 
 
 import junit.framework.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class ByteArrayUtilTest {
 

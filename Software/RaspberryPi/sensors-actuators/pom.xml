@@ -11,6 +11,15 @@
     <packaging>war</packaging>
     <name>OCS :: Constellation :: Sensors Actuators</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <versions.maven.compiler>3.6.1</versions.maven.compiler>
+        <versions.java>1.8</versions.java>
+        <versions.tomee>7.0.3</versions.tomee>
+    </properties>
+
     <parent>
         <groupId>fr.unice.polytech.ocs</groupId>
         <artifactId>Constellation</artifactId>
@@ -29,10 +38,29 @@
             <artifactId>pi4j-core</artifactId>
             <version>1.1</version>
         </dependency>
+
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.0</version>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>tomee-embedded</artifactId>
+            <version>${versions.tomee}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.maps</groupId>
+            <artifactId>google-maps-services</artifactId>
+            <version>0.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.0</version>
         </dependency>
     </dependencies>
+
+
 </project>
