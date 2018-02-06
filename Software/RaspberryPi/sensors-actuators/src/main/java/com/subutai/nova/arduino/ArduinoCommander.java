@@ -35,9 +35,11 @@ public class ArduinoCommander implements SerialDataEventListener {
             LOGGER.log(Level.INFO, "parsed command: " + Arrays.toString(command.parseCommand()));
             board.write(command.parseCommand());
         } catch (IOException e) {
+            e.printStackTrace();
             LOGGER.log(Level.WARNING, "IOException raised while sending command: " + command.getId());
             return false;
         } catch (CommandSizeExceedException c) {
+            c.printStackTrace();
             LOGGER.log(Level.WARNING, "Command size exceed the maximum size, not sent. id = " + command.getId());
         }
         return true;
@@ -56,7 +58,8 @@ public class ArduinoCommander implements SerialDataEventListener {
         LOGGER.log(Level.INFO, "Sending command " + command.getId());
         try {
             registry.registerCallbackCommand(command);
-            board.write(command.getDescription());
+            LOGGER.log(Level.INFO, "Sending: " + Arrays.toString(command.parseCommand()));
+            board.write(command.parseCommand());
         } catch (IOException e) {
             e.printStackTrace();
             LOGGER.warning(e.getMessage());
@@ -68,6 +71,9 @@ public class ArduinoCommander implements SerialDataEventListener {
             LOGGER.warning(e.getMessage());
             command.onFailure(FailureResponse.RegistryError);
             return false;
+        } catch (CommandSizeExceedException e) {
+            e.printStackTrace();
+            LOGGER.log(Level.WARNING, "Command size exceed the maximum size, not sent. id = " + command.getId());
         }
         return true;
     }
