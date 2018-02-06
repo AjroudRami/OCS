@@ -32,7 +32,6 @@ public class OrientationImpl implements OrientationWS {
         handler = new CallbackHandler();
         startTime = System.currentTimeMillis();
         response = false;
-        Orientation orientation = null;
         RequestYPR request = new RequestYPR();
         request.setCommandCallback(handler);
         commander.sendCommand(request);
@@ -54,6 +53,7 @@ public class OrientationImpl implements OrientationWS {
 
         @Override
         public void onSuccess(CommandResponse resp) {
+            LOGGER.log(Level.INFO, "Successfully received response");
             orientation = Orientation.fromBytes(resp.getBytes());
             response = true;
         }
