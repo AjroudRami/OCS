@@ -3,7 +3,6 @@ package com.subutai.nova.arduino;
 import com.pi4j.io.serial.*;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.DependsOn;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import java.io.IOException;
@@ -14,7 +13,6 @@ import java.util.logging.Logger;
 
 @Singleton(name="ArduinoBoard")
 @Startup
-@DependsOn("BluetoothSerialBinder")
 public class ArduinoBoard {
     private final Serial serial = SerialFactory.createInstance();
     private boolean online;
