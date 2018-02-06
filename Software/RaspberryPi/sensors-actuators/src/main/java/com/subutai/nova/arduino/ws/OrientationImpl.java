@@ -60,6 +60,7 @@ public class OrientationImpl implements OrientationWS {
 
         @Override
         public void onFailure(FailureResponse resp) {
+            LOGGER.log(Level.INFO, "FAILURE: " + resp.getMessage());
             response = true;
         }
     }

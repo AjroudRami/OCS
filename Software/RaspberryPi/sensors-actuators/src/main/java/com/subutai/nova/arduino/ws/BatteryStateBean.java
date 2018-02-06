@@ -9,9 +9,12 @@ import com.subutai.nova.arduino.ws.entities.BatteryState;
 
 import javax.ejb.EJB;
 import javax.ws.rs.core.Response;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BatteryStateBean implements BatteryStateWS {
 
+    private static Logger LOGGER = Logger.getLogger(BatteryStateBean.class.getSimpleName());
     @EJB
     ArduinoCommander commander;
     private boolean response = false;
@@ -51,6 +54,7 @@ public class BatteryStateBean implements BatteryStateWS {
 
         @Override
         public void onFailure(FailureResponse resp) {
+            LOGGER.log(Level.INFO, "FAILURE: " + resp.getMessage());
             response = true;
         }
     }
