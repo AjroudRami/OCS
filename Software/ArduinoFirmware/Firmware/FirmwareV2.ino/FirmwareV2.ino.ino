@@ -93,8 +93,8 @@ void commandYPR(){
   byte response[15];
   response[0] = commandBuff[0];
   response[1] = 16;
-  response[2] = commandBuff[1];
-  response[3] = commandBuff[2];
+  response[2] = commandBuff[2];
+  response[3] = commandBuff[3];
   response[4] = yaw[0];
   response[5] = yaw[1];
   response[6] = yaw[2];

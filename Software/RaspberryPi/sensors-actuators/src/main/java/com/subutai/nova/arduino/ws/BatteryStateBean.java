@@ -35,7 +35,8 @@ public class BatteryStateBean implements BatteryStateWS {
         if (state != null) {
             return Response.ok().entity(state).build();
         }
-        return Response.status(500).entity("Sensor did not respond").build();
+        return Response.status(500).entity("{ \"msg\": \"Sensor did not respond :" + response
+                + "\"}").build();
     }
 
     private class CallbackHandler implements CommandCallback {

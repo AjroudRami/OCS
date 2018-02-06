@@ -10,6 +10,8 @@ import com.subutai.nova.arduino.command.list.RequestYPR;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.core.Response;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Stateless
 public class OrientationImpl implements OrientationWS {
@@ -17,9 +19,10 @@ public class OrientationImpl implements OrientationWS {
     @EJB
     ArduinoCommander commander;
 
+    private static Logger LOGGER = Logger.getLogger(OrientationImpl.class.getSimpleName());
     private boolean response = false;
     private long startTime = 0;
-    private long TIMEOUT = 500;
+    private long TIMEOUT = 1000;
     private Orientation orientation;
     private CallbackHandler handler;
 
@@ -27,21 +30,22 @@ public class OrientationImpl implements OrientationWS {
     public Response queryOrientation() {
         orientation = null;
         handler = new CallbackHandler();
-        RequestYPR command = new RequestYPR();
         startTime = System.currentTimeMillis();
         response = false;
         Orientation orientation = null;
         RequestYPR request = new RequestYPR();
         request.setCommandCallback(handler);
         commander.sendCommand(request);
+        LOGGER.log(Level.INFO, "Waiting");
         while (!response || (System.currentTimeMillis() - startTime > TIMEOUT)) ;
+        LOGGER.log(Level.INFO, "Done waiting");
 
         if (orientation != null) {
             return Response.ok().entity(orientation).build();
         }
-        return Response.status(500).entity("Sensor did not respond").build();
+        return Response.status(500).entity("{ \"msg\": \"Sensor did not respond :" + response
+                + "\"}").build();
     }
-
 
     private class CallbackHandler implements CommandCallback {
 
