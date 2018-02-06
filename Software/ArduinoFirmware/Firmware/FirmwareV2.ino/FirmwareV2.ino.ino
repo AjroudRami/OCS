@@ -13,7 +13,7 @@ byte commandBuff[64];
 int commandLength;
 
 boolean streamYPR = false;
-float batteryState;
+byte batteryState;
 
 void setup() {
   pinMode(LED_RED, OUTPUT);
@@ -92,21 +92,22 @@ void commandYPR(){
   float2Bytes(7.89, roll);
   byte response[15];
   response[0] = commandBuff[0];
-  response[1] = commandBuff[1];
-  response[2] = commandBuff[2];
-  response[3] = yaw[0];
-  response[4] = yaw[1];
-  response[5] = yaw[2];
-  response[6] = yaw[3];
-  response[7] = pitch[0];
-  response[8] = pitch[1];
-  response[9] = pitch[2];
-  response[10] = pitch[3];
-  response[11] = roll[0];
-  response[12] = roll[1];
-  response[13] = roll[2];
-  response[14] = roll[3];
-  sendResponse(response, 15);
+  response[1] = 16;
+  response[2] = commandBuff[1];
+  response[3] = commandBuff[2];
+  response[4] = yaw[0];
+  response[5] = yaw[1];
+  response[6] = yaw[2];
+  response[7] = yaw[3];
+  response[8] = pitch[0];
+  response[9] = pitch[1];
+  response[10] = pitch[2];
+  response[11] = pitch[3];
+  response[12] = roll[0];
+  response[13] = roll[1];
+  response[14] = roll[2];
+  response[15] = roll[3];
+  sendResponse(response, 16);
 }
 
 void commandStreamYPR(){
@@ -121,12 +122,13 @@ void commandStreamYPR(){
 
 void commandBatteryState() {
   Serial.println("Command: BatteryState");
-  byte response[4];
+  byte response[5];
   response[0] = commandBuff[0];
-  response[1] = commandBuff[1];
+  response[1] = 5;
   response[2] = commandBuff[2];
   response[3] = commandBuff[3];
-  sendResponse(response, 4);
+  response[4] = batteryState;
+  sendResponse(response, 5);
 }
 
 void commandLedOn(){
