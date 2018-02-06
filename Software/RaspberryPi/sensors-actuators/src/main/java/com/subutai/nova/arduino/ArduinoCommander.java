@@ -71,6 +71,7 @@ public class ArduinoCommander implements SerialDataEventListener {
             e.printStackTrace();
             LOGGER.warning(e.getMessage());
             command.onFailure(FailureResponse.RegistryError);
+            registry.removeCallback(command);
             return false;
         } catch (CommandSizeExceedException e) {
             e.printStackTrace();

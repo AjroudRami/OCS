@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class CallbackRegistry {
 
     private final int COMMAND_STORAGE_SIZE = 1024;
-    private final long SLOT_TIMEOUT = 100;
+    private final long SLOT_TIMEOUT = 5000;
     private ArduinoCallbackCommand[] commands;
 
     public CallbackRegistry(){
@@ -18,19 +18,25 @@ public class CallbackRegistry {
     }
 
     public synchronized void registerCallbackCommand(ArduinoCallbackCommand command) throws CallbackRegistryException {
-        int slotID = getFreeSlot();
+        short slotID = getFreeSlot();
         if (slotID < 0) {
             throw new CallbackRegistryException();
         }
-        command.setCallbackId((short) slotID);
+        command.setCallbackId(slotID);
+        System.out.println("Register ID : " + slotID);
         this.commands[slotID] = command;
         makeTimeout(slotID);
     }
 
     public synchronized void notifyResponse(CommandResponse response) {
         short id = response.getCallbackId();
+        System.out.println("ID : " + id);
         ArduinoCallbackCommand command = this.commands[id];
-        command.onSuccess(response);
+        try {
+            command.onSuccess(response);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
         this.commands[id] = null;
     }
 
@@ -38,8 +44,8 @@ public class CallbackRegistry {
         this.commands[command.getCallbackId()] = null;
     }
 
-    public synchronized int getFreeSlot(){
-        for(int i = 0; i < commands.length; i++) {
+    public synchronized short getFreeSlot() {
+        for (short i = 0; i < commands.length; i++) {
             if(commands[i] == null) {
                 return i;
             }
