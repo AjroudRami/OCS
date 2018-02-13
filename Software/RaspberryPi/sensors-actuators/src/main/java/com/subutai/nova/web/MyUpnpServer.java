@@ -18,13 +18,22 @@ import java.io.IOException;
 @LocalBean
 @Startup
 @Singleton
-public class UpnpServer {
+public class MyUpnpServer {
+    private static UpnpService upnpService;
 
-    private final UpnpService upnpService = new UpnpServiceImpl();
+    public MyUpnpServer() {
+        try {
+            upnpService = new UpnpServiceImpl();
+        } catch (Exception e) {
+            System.out.println("DANNNNNNNNGERRRRRRRRRR");
+        }
+    }
+
 
 
     @PostConstruct
     public void initUpnp() {
+        if (upnpService == null) return;
         // Add the bound local device to the registry
         try {
             upnpService.getRegistry().addDevice(createDevice());
