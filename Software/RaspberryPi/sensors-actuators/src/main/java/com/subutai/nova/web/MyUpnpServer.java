@@ -1,29 +1,17 @@
 package com.subutai.nova.web;
 
-import org.fourthline.cling.UpnpService;
-import org.fourthline.cling.UpnpServiceImpl;
-import org.fourthline.cling.binding.LocalServiceBindingException;
-import org.fourthline.cling.model.ValidationException;
-import org.fourthline.cling.model.meta.*;
-import org.fourthline.cling.model.types.DeviceType;
-import org.fourthline.cling.model.types.UDADeviceType;
-import org.fourthline.cling.model.types.UDN;
-
-import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import java.io.IOException;
 
 @LocalBean
 @Startup
 @Singleton
 public class MyUpnpServer {
-    private static UpnpService upnpService;
+    /**private static UpnpService upnpService;
 
     public MyUpnpServer() {
         try {
-            upnpService = new UpnpServiceImpl();
         } catch (Exception e) {
             System.out.println("DANNNNNNNNGERRRRRRRRRR");
         }
@@ -83,7 +71,7 @@ public class MyUpnpServer {
          switchPowerService.setManager(
          new DefaultServiceManager(switchPowerService, SwitchPower.class)
          );
-         */
-        return new LocalService[0];
-    }
+    //
+    return new LocalService[0];
+    }**/
 }
