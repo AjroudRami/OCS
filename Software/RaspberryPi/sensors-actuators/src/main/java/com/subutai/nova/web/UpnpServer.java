@@ -10,10 +10,12 @@ import org.fourthline.cling.model.types.UDADeviceType;
 import org.fourthline.cling.model.types.UDN;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import java.io.IOException;
 
+@LocalBean
 @Startup
 @Singleton
 public class UpnpServer {
