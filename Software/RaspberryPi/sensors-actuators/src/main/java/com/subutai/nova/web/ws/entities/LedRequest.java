@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino.ws.entities;
+package com.subutai.nova.web.ws.entities;
 
 public class LedRequest {
 

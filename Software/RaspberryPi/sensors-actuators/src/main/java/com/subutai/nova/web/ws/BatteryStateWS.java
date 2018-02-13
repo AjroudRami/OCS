@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino.ws;
+package com.subutai.nova.web.ws;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

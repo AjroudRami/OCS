@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino.ws;
+package com.subutai.nova.web.ws;
 
 import com.subutai.nova.arduino.ArduinoCommander;
 import com.subutai.nova.arduino.CommandCallback;

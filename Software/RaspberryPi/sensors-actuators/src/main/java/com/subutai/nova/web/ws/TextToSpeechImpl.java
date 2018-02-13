@@ -1,6 +1,6 @@
-package com.subutai.nova.arduino.ws;
+package com.subutai.nova.web.ws;
 
-import com.subutai.nova.arduino.ws.entities.ReadRequest;
+import com.subutai.nova.web.ws.entities.ReadRequest;
 
 import javax.ws.rs.core.Response;
 

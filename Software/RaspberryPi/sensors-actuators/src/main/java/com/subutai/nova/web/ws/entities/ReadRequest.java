@@ -1,11 +1,12 @@
-package com.subutai.nova.arduino.ws.entities;
+package com.subutai.nova.web.ws.entities;
 
 public class ReadRequest {
 
     private String lang;
     private String text;
 
-    public ReadRequest(){};
+    public ReadRequest() {
+    }
 
     public String getLang() {
         return lang;

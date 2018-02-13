@@ -1,7 +1,7 @@
-package com.subutai.nova.arduino.ws;
+package com.subutai.nova.web.ws;
 
 import com.subutai.nova.arduino.ArduinoCommander;
-import com.subutai.nova.arduino.ws.entities.LedRequest;
+import com.subutai.nova.web.ws.entities.LedRequest;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
