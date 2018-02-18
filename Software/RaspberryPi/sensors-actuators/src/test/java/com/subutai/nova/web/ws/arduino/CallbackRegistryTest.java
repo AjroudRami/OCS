@@ -1,6 +1,6 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
-import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
+import com.subutai.nova.web.ws.arduino.command.ArduinoCallbackCommand;
 import org.junit.Test;
 
 public class CallbackRegistryTest {

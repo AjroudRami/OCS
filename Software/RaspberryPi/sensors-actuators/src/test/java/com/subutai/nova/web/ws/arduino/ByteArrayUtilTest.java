@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
 
 import junit.framework.Assert;
@@ -7,7 +7,7 @@ import org.junit.Test;
 public class ByteArrayUtilTest {
 
     @Test
-    public void copyTest(){
+    public void copyTest() {
         byte[] in = new byte[]{10, 20};
         byte[] out = new byte[5];
 

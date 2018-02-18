@@ -1,7 +1,7 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
-import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
-import com.subutai.nova.arduino.command.CommandResponse;
+import com.subutai.nova.web.ws.arduino.command.ArduinoCallbackCommand;
+import com.subutai.nova.web.ws.arduino.command.CommandResponse;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -13,7 +13,7 @@ public class CallbackRegistry {
     private final long SLOT_TIMEOUT = 5000;
     private ArduinoCallbackCommand[] commands;
 
-    public CallbackRegistry(){
+    public CallbackRegistry() {
         this.commands = new ArduinoCallbackCommand[COMMAND_STORAGE_SIZE];
     }
 
@@ -46,14 +46,14 @@ public class CallbackRegistry {
 
     public synchronized short getFreeSlot() {
         for (short i = 0; i < commands.length; i++) {
-            if(commands[i] == null) {
+            if (commands[i] == null) {
                 return i;
             }
         }
         return -1;
     }
 
-    private synchronized void makeTimeout(int slotId){
+    private synchronized void makeTimeout(int slotId) {
         //TODO Executor service should be shutdown if the command fails to be sent.
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         scheduledExecutorService.schedule(() -> {
@@ -63,7 +63,7 @@ public class CallbackRegistry {
         }, SLOT_TIMEOUT, TimeUnit.MILLISECONDS);
     }
 
-    private synchronized void slotTimeout(int slotId){
+    private synchronized void slotTimeout(int slotId) {
         if (this.commands[slotId] != null) {
             ArduinoCallbackCommand cmd = commands[slotId];
             cmd.onFailure(FailureResponse.Timeout);

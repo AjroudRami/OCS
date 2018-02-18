@@ -1,8 +1,8 @@
-package com.subutai.nova.arduino.command;
+package com.subutai.nova.web.ws.arduino.command;
 
-import com.subutai.nova.arduino.*;
+import com.subutai.nova.web.ws.arduino.*;
 
-public abstract class ArduinoCallbackCommand extends ArduinoCommand{
+public abstract class ArduinoCallbackCommand extends ArduinoCommand {
 
     private short callbackId;
     private CommandCallback callback;
@@ -37,7 +37,7 @@ public abstract class ArduinoCallbackCommand extends ArduinoCommand{
         this.callback = callback;
     }
 
-    public void onSuccess(CommandResponse response){
+    public void onSuccess(CommandResponse response) {
         this.callback.onSuccess(response);
     }
 
@@ -45,11 +45,11 @@ public abstract class ArduinoCallbackCommand extends ArduinoCommand{
         this.callback.onFailure(response);
     }
 
-    public void setCallbackId(short id){
-        this.callbackId = id;
+    public short getCallbackId() {
+        return this.callbackId;
     }
 
-    public short getCallbackId(){
-        return this.callbackId;
+    public void setCallbackId(short id) {
+        this.callbackId = id;
     }
 }

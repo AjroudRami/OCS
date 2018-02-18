@@ -1,10 +1,10 @@
 package com.subutai.nova.web.ws;
 
-import com.subutai.nova.arduino.ArduinoCommander;
-import com.subutai.nova.arduino.CommandCallback;
-import com.subutai.nova.arduino.FailureResponse;
-import com.subutai.nova.arduino.command.CommandResponse;
-import com.subutai.nova.arduino.command.list.RequestBatteryState;
+import com.subutai.nova.web.ws.arduino.ArduinoCommander;
+import com.subutai.nova.web.ws.arduino.CommandCallback;
+import com.subutai.nova.web.ws.arduino.FailureResponse;
+import com.subutai.nova.web.ws.arduino.command.CommandResponse;
+import com.subutai.nova.web.ws.arduino.command.list.RequestBatteryState;
 import com.subutai.nova.web.ws.entities.BatteryState;
 
 import javax.ejb.EJB;

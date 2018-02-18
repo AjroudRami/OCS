@@ -1,10 +1,10 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
 import com.pi4j.io.serial.SerialDataEvent;
 import com.pi4j.io.serial.SerialDataEventListener;
-import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
-import com.subutai.nova.arduino.command.ArduinoCommand;
-import com.subutai.nova.arduino.command.CommandResponse;
+import com.subutai.nova.web.ws.arduino.command.ArduinoCallbackCommand;
+import com.subutai.nova.web.ws.arduino.command.ArduinoCommand;
+import com.subutai.nova.web.ws.arduino.command.CommandResponse;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.*;
@@ -25,12 +25,12 @@ public class ArduinoCommander implements SerialDataEventListener {
     ArduinoBoard board;
 
     @PostConstruct
-    private void init(){
+    private void init() {
         registry = new CallbackRegistry();
         board.registerDataListener(this);
     }
 
-    public boolean sendCommand(ArduinoCommand command){
+    public boolean sendCommand(ArduinoCommand command) {
         LOGGER.log(Level.INFO, "Sending command " + command.getId());
         try {
             LOGGER.log(Level.INFO, "parsed command: " + Arrays.toString(command.parseCommand()));
@@ -52,10 +52,11 @@ public class ArduinoCommander implements SerialDataEventListener {
      * an IOEXception FailureResponse
      * if no response is received from the arduino within the time window,
      * a timeout FailureResponse will be sent to the onFailure method;
+     *
      * @param command
      * @return
      */
-    public boolean sendCommand(ArduinoCallbackCommand command){
+    public boolean sendCommand(ArduinoCallbackCommand command) {
         LOGGER.log(Level.INFO, "Sending command " + command.getId());
         try {
             registry.registerCallbackCommand(command);

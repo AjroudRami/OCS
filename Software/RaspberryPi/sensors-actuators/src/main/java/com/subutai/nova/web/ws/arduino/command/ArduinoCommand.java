@@ -1,12 +1,12 @@
-package com.subutai.nova.arduino.command;
+package com.subutai.nova.web.ws.arduino.command;
 
-import com.subutai.nova.arduino.ByteArrayUtil;
-import com.subutai.nova.arduino.CommandSizeExceedException;
+import com.subutai.nova.web.ws.arduino.ByteArrayUtil;
+import com.subutai.nova.web.ws.arduino.CommandSizeExceedException;
 
 public abstract class ArduinoCommand {
 
-    protected byte id;
     static final byte MAXIMUM_COMMAND_SIZE = 64;
+    protected byte id;
 
     public byte[] parseCommand() throws CommandSizeExceedException {
         byte[] description = getDescription();
@@ -25,12 +25,13 @@ public abstract class ArduinoCommand {
      * This method should return the command description in a byte array, Its length should not exceed 62 for an ArduinoCommand
      * or 61 for an ArduinoCallbackCommand. Due to hardware restrictions, the arduino serial byte buffer size is 64.
      * Trying to send a command that exceed this length will results in loss of data.
+     *
      * @return The command description in a byte array
      */
     public abstract byte[] getDescription();
 
 
-    public byte getId(){
+    public byte getId() {
         return this.id;
     }
 }

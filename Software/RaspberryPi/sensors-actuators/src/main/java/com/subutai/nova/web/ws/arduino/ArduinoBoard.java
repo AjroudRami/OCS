@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
 import com.pi4j.io.serial.*;
 
@@ -11,17 +11,17 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Singleton(name="ArduinoBoard")
+@Singleton(name = "ArduinoBoard")
 @Startup
 public class ArduinoBoard {
+    private static final int initTryMax = 3;
+    private static int initTry = 0;
     private final Serial serial = SerialFactory.createInstance();
     private boolean online;
     private Logger LOGGER = Logger.getLogger(this.getClass().getSimpleName());
-    private static final int initTryMax = 3;
-    private static int initTry = 0;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         LOGGER.log(Level.INFO, "init Arduino Board");
         try {
             SerialConfig config = new SerialConfig();

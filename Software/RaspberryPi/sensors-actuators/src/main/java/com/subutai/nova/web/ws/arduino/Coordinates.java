@@ -1,8 +1,6 @@
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
-import static java.lang.Math.acos;
-import static java.lang.Math.atan;
-import static java.lang.Math.abs;
+package com.subutai.nova.web.ws.arduino;
+
+import static java.lang.Math.*;
 
 
 public class Coordinates {
@@ -67,7 +65,7 @@ public class Coordinates {
                 -(phi - 90);
 
         lng = (theta > 180) ?
-                -(theta - 180) - 3:
+                -(theta - 180) - 3 :
                 theta + 3;
     }
 
@@ -86,12 +84,12 @@ public class Coordinates {
         return lng;
     }
 
-    public Coordinates clone(){
-        return new Coordinates(x, y ,z);
+    public Coordinates clone() {
+        return new Coordinates(x, y, z);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "x: " + x + " y: " + y + " z: " + z;
     }
 }

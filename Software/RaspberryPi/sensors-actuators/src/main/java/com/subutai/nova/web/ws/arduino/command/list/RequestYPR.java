@@ -1,7 +1,7 @@
-package com.subutai.nova.arduino.command.list;
+package com.subutai.nova.web.ws.arduino.command.list;
 
-import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
-import com.subutai.nova.arduino.command.Commands;
+import com.subutai.nova.web.ws.arduino.command.ArduinoCallbackCommand;
+import com.subutai.nova.web.ws.arduino.command.Commands;
 
 public class RequestYPR extends ArduinoCallbackCommand {
 

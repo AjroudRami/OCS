@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
 public class FailureResponse {
 
@@ -13,24 +13,24 @@ public class FailureResponse {
     private String message;
     private int errorCode;
 
-    public FailureResponse(int errorCode){
+    public FailureResponse(int errorCode) {
         this.errorCode = errorCode;
         this.message = "";
-    }
-
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public int getErrorCode() {
         return errorCode;
     }
 
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

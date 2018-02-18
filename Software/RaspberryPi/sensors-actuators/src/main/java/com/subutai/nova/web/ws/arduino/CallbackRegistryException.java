@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
 public class CallbackRegistryException extends Throwable {
 }

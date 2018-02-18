@@ -1,7 +1,7 @@
-package com.subutai.nova.arduino.command.list;
+package com.subutai.nova.web.ws.arduino.command.list;
 
-import com.subutai.nova.arduino.command.ArduinoCommand;
-import com.subutai.nova.arduino.command.Commands;
+import com.subutai.nova.web.ws.arduino.command.ArduinoCommand;
+import com.subutai.nova.web.ws.arduino.command.Commands;
 
 import java.nio.ByteBuffer;
 

@@ -1,4 +1,4 @@
-package com.subutai.nova.arduino;
+package com.subutai.nova.web.ws.arduino;
 
 import junit.framework.Assert;
 import org.junit.Test;

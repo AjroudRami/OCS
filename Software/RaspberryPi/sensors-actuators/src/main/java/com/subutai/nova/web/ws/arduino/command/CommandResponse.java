@@ -1,7 +1,7 @@
-package com.subutai.nova.arduino.command;
+package com.subutai.nova.web.ws.arduino.command;
 
-import com.subutai.nova.arduino.BinaryConverter;
-import com.subutai.nova.arduino.ByteArrayUtil;
+import com.subutai.nova.web.ws.arduino.BinaryConverter;
+import com.subutai.nova.web.ws.arduino.ByteArrayUtil;
 
 public class CommandResponse {
 
@@ -25,11 +25,11 @@ public class CommandResponse {
         return id;
     }
 
-    public short getCallbackId(){
+    public short getCallbackId() {
         return this.callbackId;
     }
 
-    public byte[] getBytes(){
+    public byte[] getBytes() {
         return this.bytes;
     }
 
