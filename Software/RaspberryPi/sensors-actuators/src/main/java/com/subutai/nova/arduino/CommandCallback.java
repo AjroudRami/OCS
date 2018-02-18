@@ -1,6 +1,6 @@
-package com.subutai.nova.web.ws.arduino;
+package com.subutai.nova.arduino;
 
-import com.subutai.nova.web.ws.arduino.command.CommandResponse;
+import com.subutai.nova.arduino.command.CommandResponse;
 
 public interface CommandCallback {
 

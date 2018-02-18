@@ -1,7 +1,7 @@
-package com.subutai.nova.web.ws.arduino.command;
+package com.subutai.nova.arduino.command;
 
-import com.subutai.nova.web.ws.arduino.ByteArrayUtil;
-import com.subutai.nova.web.ws.arduino.CommandSizeExceedException;
+import com.subutai.nova.arduino.ByteArrayUtil;
+import com.subutai.nova.arduino.CommandSizeExceedException;
 
 public abstract class ArduinoCommand {
 

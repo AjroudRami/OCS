@@ -1,4 +1,4 @@
-package com.subutai.nova.web.ws.entities;
+package com.subutai.nova.web.entities;
 
 public class LedRequest {
 

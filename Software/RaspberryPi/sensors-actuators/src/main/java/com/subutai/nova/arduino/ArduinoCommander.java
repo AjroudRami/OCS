@@ -1,10 +1,10 @@
-package com.subutai.nova.web.ws.arduino;
+package com.subutai.nova.arduino;
 
 import com.pi4j.io.serial.SerialDataEvent;
 import com.pi4j.io.serial.SerialDataEventListener;
-import com.subutai.nova.web.ws.arduino.command.ArduinoCallbackCommand;
-import com.subutai.nova.web.ws.arduino.command.ArduinoCommand;
-import com.subutai.nova.web.ws.arduino.command.CommandResponse;
+import com.subutai.nova.arduino.command.ArduinoCallbackCommand;
+import com.subutai.nova.arduino.command.ArduinoCommand;
+import com.subutai.nova.arduino.command.CommandResponse;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.*;

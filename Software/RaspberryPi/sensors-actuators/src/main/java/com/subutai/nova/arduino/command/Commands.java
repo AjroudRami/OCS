@@ -1,4 +1,4 @@
-package com.subutai.nova.web.ws.arduino.command;
+package com.subutai.nova.arduino.command;
 
 public class Commands {
 

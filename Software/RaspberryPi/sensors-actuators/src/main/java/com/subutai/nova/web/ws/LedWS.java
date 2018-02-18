@@ -1,6 +1,6 @@
 package com.subutai.nova.web.ws;
 
-import com.subutai.nova.web.ws.entities.LedRequest;
+import com.subutai.nova.web.entities.LedRequest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

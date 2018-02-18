@@ -1,4 +1,4 @@
-package com.subutai.nova.web.ws.arduino;
+package com.subutai.nova.arduino;
 
 import com.pi4j.io.serial.*;
 

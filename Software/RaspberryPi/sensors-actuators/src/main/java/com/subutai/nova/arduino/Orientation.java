@@ -1,4 +1,4 @@
-package com.subutai.nova.web.ws.arduino;
+package com.subutai.nova.arduino;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

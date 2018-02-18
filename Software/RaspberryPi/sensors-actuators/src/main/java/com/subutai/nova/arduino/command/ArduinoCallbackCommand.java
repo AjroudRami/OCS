@@ -1,6 +1,6 @@
-package com.subutai.nova.web.ws.arduino.command;
+package com.subutai.nova.arduino.command;
 
-import com.subutai.nova.web.ws.arduino.*;
+import com.subutai.nova.arduino.*;
 
 public abstract class ArduinoCallbackCommand extends ArduinoCommand {
 

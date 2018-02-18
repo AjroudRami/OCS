@@ -1,7 +1,8 @@
 package com.subutai.nova.web.ws;
 
-import com.subutai.nova.web.ws.arduino.ArduinoCommander;
-import com.subutai.nova.web.ws.entities.LedRequest;
+import com.subutai.nova.arduino.ArduinoCommander;
+import com.subutai.nova.arduino.command.list.LedOn;
+import com.subutai.nova.web.entities.LedRequest;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -23,7 +24,7 @@ public class LedImpl implements LedWS {
             return Response.status(400).entity("red, green, blue must be between 0 and 255 included").build();
         }
         int color = new Color(request.getRed(), request.getGreen(), request.getBlue()).getRGB();
-        commander.sendCommand(new com.subutai.nova.web.ws.arduino.command.list.LedOn(color));
+        commander.sendCommand(new LedOn(color));
         return Response.ok().build();
     }
 
