@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-ssdp": "^3.2.5"
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
+    "node-ssdp": "^3.2.5",
+    "socket.io": "^2.0.4"
   }
 }
