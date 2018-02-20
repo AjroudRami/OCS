@@ -5,11 +5,13 @@ const client = new ssdp({});
 const axios = require('axios');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const Subscription = require('node-upnp-subscription');
 
 let discovered = false;
 let address;
 let port;
 let url;
+let upnp;
 
 const path = '/sensors-actuators-1.0-SNAPSHOT';
 
@@ -78,6 +80,11 @@ client.on('response', function inResponse(headers, code, rinfo) {
   discovered = true;
   io.emit('state', { state: 'ready' });
   console.log(`EarthService fount at: http://${address}:${port}/`);
+  upnp = new Subscription(address, port, path);
+
+  upnp.on('Orientation', function(orientation) {
+    console.log(orientation);
+  });
 });
 
 console.log('ssdp scan started');
