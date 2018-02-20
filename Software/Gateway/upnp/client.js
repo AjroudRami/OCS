@@ -15,39 +15,46 @@ let upnp;
 
 const path = '/sensors-actuators-1.0-SNAPSHOT';
 
-app.get('/', function(req, res) {
-  res.sendFile('./index.html', { root: '.'});
+app.get('/', function (req, res) {
+  res.sendFile('./index.html', {
+    root: '.'
+  });
 });
 
 io.on('connection', function (socket) {
   console.log('user connected');
 
   if (discovered) {
-    socket.emit('state', { state: 'ready' });
+    socket.emit('state', {
+      state: 'ready'
+    });
   }
 
-  socket.on('message', function(req) {
-    app.post('/message', function(req, res) {
+  socket.on('message', function (req) {
+    app.post('/message', function (req, res) {
       axios.post(`${url}/message`, {
-        msg: req.msg
-      })
+          msg: req.msg
+        })
+        .then((resp) => {
+          console.log(resp);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  });
+
+  socket.on('orientation', function (req) {
+    axios.get(`${url}/orientation`)
       .then((resp) => {
-        // TODO
+        console.log(resp);
       })
       .catch((err) => {
         console.error(err);
       });
-    });
   });
 
-  socket.on('orientation', function(req) {
-    axios.get(`${url}/orientation`)
-         .then((response) => {
-           // TODO
-    });
-  });
-
-  socket.on('ledOn', function(req) {
+  socket.on('ledOn', function (req) {
     console.log(req.color);
     /*
     axios.post(`${url}/ledOn`, {
@@ -65,7 +72,7 @@ io.on('connection', function (socket) {
   });
 });
 
-http.listen(8000, function(){
+http.listen(8000, function () {
   console.log('listening on *:8000');
 });
 
@@ -78,11 +85,13 @@ client.on('response', function inResponse(headers, code, rinfo) {
   port = rinfo.port;
   url = `http://${address}:${port}${path}`;
   discovered = true;
-  io.emit('state', { state: 'ready' });
+  io.emit('state', {
+    state: 'ready'
+  });
   console.log(`EarthService fount at: http://${address}:${port}/`);
   upnp = new Subscription(address, port, path);
 
-  upnp.on('Orientation', function(orientation) {
+  upnp.on('Orientation', function (orientation) {
     console.log(orientation);
   });
 });
