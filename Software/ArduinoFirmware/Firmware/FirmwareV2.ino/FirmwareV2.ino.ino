@@ -289,14 +289,14 @@ void setupMPU(){
         mpu.setDMPEnabled(true);
 
         // enable Arduino interrupt detection
-        Serial.println(F("Enabling interrupt detection (Arduino external interrupt 0)..."));
+        Serial.println(F("Enabling interrupt detection (Arduino external interrupt pin 2)..."));
         attachInterrupt(digitalPinToInterrupt(GYRO_INT), dmpDataReady, RISING);
         mpuIntStatus = mpu.getIntStatus();
 
         // set our DMP Ready flag so the main loop() function knows it's okay to use it
         Serial.println(F("DMP ready! Waiting for first interrupt..."));
         dmpReady = true;
-
+        Serial.println(F("MPU Ready to use!"));
         // get expected DMP packet size for later comparison
         packetSize = mpu.dmpGetFIFOPacketSize();
     } else {
