@@ -38,7 +38,7 @@ public class ArduinoBoard {
                     .dataBits(DataBits._8)
                     .parity(Parity.NONE)
                     .stopBits(StopBits._1)
-                    .flowControl(FlowControl.HARDWARE);
+                    .flowControl(FlowControl.NONE);
             serial.open(config);
             LOGGER.log(Level.INFO, "init Arduino Board success");
         } catch (Exception e) {
