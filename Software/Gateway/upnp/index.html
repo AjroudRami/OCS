@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Constellation</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <h1>Constellation</h1>
+
+  <div class="loader">
+  </div>
+
+  <div class="loaded">
+    <div class="row">
+      <input id="color-input" type="color">
+      <button id="color-btn" onclick="updateColor()">Update LEDs</button>
+      <button id="color-btn" onclick="colorParty()">Color party</button>
+    </div>
+    <div class="row">
+      <button onclick="getOrientation()">Get orientation</button>
+    </div>
+    <div class="row">
+      <input id="text-input" type="text" value="Coucou">
+      <button id="text-btn" onclick="sendMessage()">Send message</button>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<style>
+  body {
+    background-color: #34495e;
+    text-align: center;
+    font-family: Helvetica;
+  }
+
+  h1 {
+    color: white;
+    font-size: 3em;
+  }
+
+  .row * {
+    vertical-align: top;
+  }
+
+  button {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 250px;
+    height: 70px;
+    cursor: pointer;
+    margin: 0 10px;
+    border: 2px solid rgb(30, 205, 151);
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    font-size: 20px;
+    color: rgb(30, 205, 151);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0);
+    -webkit-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+    -moz-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+    -o-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+    transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+  }
+
+  button:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgb(30, 205, 151);
+  }
+
+  button:active {
+    border: 2px solid rgba(33, 224, 163, 1);
+    background: rgba(33, 224, 163, 1);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+
+  input {
+    height: 70px;
+    width: 200px;
+    border: none;
+    padding: 0 20px;
+  }
+
+  #color-input {
+    padding: 0;
+  }
+
+  .row {
+    display: block;
+    margin: 25px auto;
+  }
+
+  .loader {
+    display: inline-block;
+    margin: 0 auto;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+  }
+
+  .loaded {
+    display: none;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  const socket = io.connect('http://localhost:8000');
+
+  socket.on('state', (req) => {
+    if (req.state === 'ready') {
+      $('.loader').css('display', 'none');
+      $('.loaded').css('display', 'block');
+    }
+  });
+
+  function sendMessage() {
+    const msgInput = $('#text-input');
+    const msg = msgInput.val();
+    msgInput.val('');
+    socket.emit('message', {
+      msg
+    });
+  }
+
+  function getOrientation() {
+    socket.emit('orientation', {
+      action: 'getOrientation'
+    });
+    const url = `${address}/orientation`;
+  }
+
+  socket.on('orientation', function (data) {
+    console.log(data);
+    const pos = setXYZfromRPY(data.roll, data.pitch, data.yaw);
+    const coord = calcEarthCoordinates(pos.x, pos.y, pos.z);
+  });
+
+  function colorRequest(color) {
+    socket.emit('ledOn', {
+      color
+    });
+  }
+
+  function updateColor() {
+    const color = hexToRgb($('#color-input').val());
+    colorRequest(color);
+  }
+
+  let h;
+
+  function colorParty() {
+    h = 0;
+    const changeColor = setInterval(() => {
+      h += 0.02;
+      if (h > 1) {
+        h = 0;
+      }
+      console.log(h);
+      colorRequest(hsvToRgb(h, 1, 1));
+    }, 200);
+  }
+
+  function hsvToRgb(h, s, v) {
+    var r, g, b;
+    var i = Math.floor(h * 6);
+    var f = h * 6 - i;
+    var p = v * (1 - s);
+    var q = v * (1 - f * s);
+    var t = v * (1 - (1 - f) * s);
+    switch (i % 6) {
+      case 0:
+        r = v, g = t, b = p;
+        break;
+      case 1:
+        r = q, g = v, b = p;
+        break;
+      case 2:
+        r = p, g = v, b = t;
+        break;
+      case 3:
+        r = p, g = q, b = v;
+        break;
+      case 4:
+        r = t, g = p, b = v;
+        break;
+      case 5:
+        r = v, g = p, b = q;
+        break;
+    }
+    return {
+      r: r * 255,
+      g: g * 255,
+      b: b * 255
+    };
+  }
+
+  function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
+
+  function setXYZfromRPY(roll, pitch, yaw) {
+    const xR = x * (Math.cos(yaw) * Math.cos(pitch)) +
+      y * (Math.sin(yaw) * Math.cos(pitch)) -
+      z * (Math.sin(pitch));
+    const yR = x * (Math.cos(yaw) * Math.sin(pitch) * Math.sin(roll) - Math.sin(yaw) * Math.cos(roll)) +
+      y * (Math.sin(yaw) * Math.sin(pitch) * Math.sin(roll) + Math.cos(yaw) * Math.cos(roll)) +
+      z * (Math.cos(pitch) * Math.sin(roll));
+    const zR = x * (Math.cos(yaw) * Math.sin(pitch) * Math.cos(roll) + Math.sin(yaw) * Math.sin(roll)) +
+      y * (Math.sin(yaw) * Math.sin(pitch) * Math.cos(roll) - Math.cos(yaw) * Math.sin(roll)) +
+      z * (Math.cos(pitch) * Math.cos(roll));
+
+    return {
+      x: xR,
+      y: yR,
+      z: zR
+    };
+  }
+
+  function calcEarthCoordinates(x, y, z) {
+    const theta = Math.acos(z) * RAD_TO_DEGREE;
+    const phi = (x == 0) ? 0 : Math.atan(y / x) * RAD_TO_DEGREE;
+
+    const lat = (phi <= 90) ?
+      abs(phi - 90) :
+      -(phi - 90);
+
+    const lng = (theta > 180) ?
+      -(theta - 180) - 3 :
+      theta + 3;
+
+    return {
+      lat,
+      lng
+    };
+  }
+</script>
