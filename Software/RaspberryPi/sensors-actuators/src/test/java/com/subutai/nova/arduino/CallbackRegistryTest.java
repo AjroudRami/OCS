@@ -11,8 +11,11 @@ public class CallbackRegistryTest {
         registry.registerCallbackCommand(new ArduinoCallbackCommand() {
             @Override
             public byte[] getDescription() {
-                return new byte[0];
+                return new byte[]{0, 0, 0, 0};
             }
         });
+        Thread t = new Thread();
     }
+
+
 }
