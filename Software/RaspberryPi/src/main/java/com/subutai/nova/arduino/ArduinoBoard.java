@@ -36,7 +36,7 @@ public class ArduinoBoard {
             config.device("/dev/rfcomm1")
                     .baud(Baud._38400)
                     .dataBits(DataBits._8)
-                    .parity(Parity.NONE)
+                    .parity(Parity.EVEN)
                     .stopBits(StopBits._1)
                     .flowControl(FlowControl.NONE);
             serial.open(config);
