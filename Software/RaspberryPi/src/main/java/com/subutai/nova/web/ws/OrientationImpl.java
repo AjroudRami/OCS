@@ -36,7 +36,7 @@ public class OrientationImpl implements OrientationWS {
         request.setCommandCallback(handler);
         commander.sendCommand(request);
         LOGGER.log(Level.INFO, "Waiting");
-        while (!response || (System.currentTimeMillis() - startTime > TIMEOUT)) ;
+        while (!response || (System.currentTimeMillis() - startTime < TIMEOUT)) ;
         LOGGER.log(Level.INFO, "Done waiting");
 
         if (orientation != null) {

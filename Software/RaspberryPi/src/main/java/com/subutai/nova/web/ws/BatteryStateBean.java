@@ -8,10 +8,12 @@ import com.subutai.nova.arduino.command.list.RequestBatteryState;
 import com.subutai.nova.web.entities.BatteryState;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.core.Response;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@Stateless
 public class BatteryStateBean implements BatteryStateWS {
 
     private static Logger LOGGER = Logger.getLogger(BatteryStateBean.class.getSimpleName());
@@ -33,7 +35,7 @@ public class BatteryStateBean implements BatteryStateWS {
         response = false;
         request.setCommandCallback(handler);
         commander.sendCommand(request);
-        while (!response || (System.currentTimeMillis() - startTime > TIMEOUT)) ;
+        while (!response || (System.currentTimeMillis() - startTime < TIMEOUT)) ;
 
         if (state != null) {
             return Response.ok().entity(state).build();
