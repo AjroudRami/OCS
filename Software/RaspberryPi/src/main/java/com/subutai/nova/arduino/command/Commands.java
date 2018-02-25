@@ -17,4 +17,5 @@ public class Commands {
     public static final int STREAM_YPR = 11;
     public static final int LED_ON = 12;
     public static final int REQ_BAT_STATE = 13;
+    public static final int REQ_QUATS = 14;
 }
