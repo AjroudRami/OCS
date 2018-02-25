@@ -10,14 +10,11 @@ import java.io.IOException;
 public class TextToSpeechImpl implements TextToSpeechWS {
     @Override
     public Response readText(ReadRequest request) {
-        String text = request.getText();
+        String text = "\"" + request.getText().replace("\"", "") + "\"";
         String lang = request.getLang();
         try {
-            ProcessBuilder p1 = new ProcessBuilder("bash", "touch",  "DIRECTORY.hihi");
             ProcessBuilder p2 = new ProcessBuilder("bash", "../../src/main/resources/textToSpeech.sh", text);
-            Process pro1 = p1.inheritIO().start();
             Process pro2 = p2.inheritIO().start();
-            pro1.waitFor();
             pro2.waitFor();
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();
