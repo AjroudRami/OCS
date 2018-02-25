@@ -56,6 +56,8 @@ public class ArduinoBoard {
 
     public void write(byte[] bytes) throws IOException {
         serial.write(bytes);
+        serial.flush();
+        LOGGER.log(Level.INFO, "Command sent");
     }
 
     public byte[] read(int i) throws IOException {

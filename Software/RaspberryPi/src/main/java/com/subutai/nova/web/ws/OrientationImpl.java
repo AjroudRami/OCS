@@ -46,7 +46,7 @@ public class OrientationImpl implements OrientationWS {
         if (orientation != null) {
             return Response.ok().entity(orientation).build();
         }
-        return Response.status(500).entity("{ \"msg\": \"Sensor did not respond :" + response
+        return Response.status(500).entity("{ \"message\": \"Sensor did not respond :" + response
                 + "\"}").build();
     }
 

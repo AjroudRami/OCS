@@ -21,7 +21,7 @@ public class LedImpl implements LedWS {
     public Response ledOn(LedRequest request) {
 
         if (!checkRequest(request)) {
-            return Response.status(400).entity("red, green, blue must be between 0 and 255 included").build();
+            return Response.status(400).entity("{\"message\": \"red, green, blue must be between 0 and 255 included\"}").build();
         }
         int color = new Color(request.getRed(), request.getGreen(), request.getBlue()).getRGB();
         commander.sendCommand(new LedOn(color));

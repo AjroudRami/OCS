@@ -43,7 +43,7 @@ public class BatteryStateBean implements BatteryStateWS {
         if (state != null) {
             return Response.ok().entity(state).build();
         }
-        return Response.status(500).entity("{ \"msg\": \"Sensor did not respond :" + response
+        return Response.status(500).entity("{ \"message\": \"Sensor did not respond :" + response
                 + "\"}").build();
     }
 

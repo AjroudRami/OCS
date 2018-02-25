@@ -80,15 +80,20 @@ void dmpDataReady() {
 
 
 void setup() {
+  Serial.begin(38400);
+    //while (!Serial);
+  Serial.println("Serial OK");
+  
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
   pinMode(LED_BLUE, OUTPUT);
 
   analogWrite(LED_BLUE, 255);
+
+  println(F("Initializing Bluetooth Software Serial Connection"));
   mySerial.begin(9600);
-  Serial.begin(38400);
-    //while (!Serial);
-  Serial.println("Serial OK");
+  println(F("Bluetooth Software Serial OK"));
+
   setupMPU();
 
 }
@@ -99,6 +104,7 @@ void loop() {
   pollCommand();
   executeCommand();
   stream();
+  delay(20);
 }
 
 
@@ -265,15 +271,15 @@ void setupMPU(){
     #endif
 
     // initialize device
-    Serial.println(F("Initializing I2C devices..."));
+    Serial.println(F("Initializing I2C MPU..."));
     mpu.initialize();
 
     // verify connection
-    Serial.println(F("Testing device connections..."));
+    Serial.println(F("Testing MPU connections..."));
     Serial.println(mpu.testConnection() ? F("MPU6050 connection successful") : F("MPU6050 connection failed"));
 
     // load and configure the DMP
-    Serial.println(F("Initializing DMP..."));
+    Serial.println(F("Initializing DMP (MPU)..."));
     devStatus = mpu.dmpInitialize();
 
     // supply your own gyro offsets here, scaled for min sensitivity
@@ -285,16 +291,16 @@ void setupMPU(){
     // make sure it worked (returns 0 if so)
     if (devStatus == 0) {
         // turn on the DMP, now that it's ready
-        Serial.println(F("Enabling DMP..."));
+        Serial.println(F("Enabling DMP (MPU)..."));
         mpu.setDMPEnabled(true);
 
         // enable Arduino interrupt detection
-        Serial.println(F("Enabling interrupt detection (Arduino external interrupt pin 2)..."));
+        Serial.println(F("Enabling MPU interrupt detection (Arduino external interrupt pin 2)..."));
         attachInterrupt(digitalPinToInterrupt(GYRO_INT), dmpDataReady, RISING);
         mpuIntStatus = mpu.getIntStatus();
 
         // set our DMP Ready flag so the main loop() function knows it's okay to use it
-        Serial.println(F("DMP ready! Waiting for first interrupt..."));
+        Serial.println(F("DMP ready! Waiting for MPU first interrupt..."));
         dmpReady = true;
         Serial.println(F("MPU Ready to use!"));
         // get expected DMP packet size for later comparison
