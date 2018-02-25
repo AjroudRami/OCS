@@ -13,8 +13,8 @@ public class TextToSpeechImpl implements TextToSpeechWS {
         String text = request.getText();
         String lang = request.getLang();
         try {
-            new ProcessBuilder("touch DIRECTORY.hihi").start();
-            new ProcessBuilder("../../src/main/resources/textToSpeech.sh", text).start();
+            new ProcessBuilder("bash", "touch",  "DIRECTORY.hihi").start();
+            new ProcessBuilder("bash", "../../src/main/resources/textToSpeech.sh", text).start();
         } catch (IOException e) {
             e.printStackTrace();
             return Response.status(500).entity("{\"message\" : " + e.getMessage() +"}").build();
