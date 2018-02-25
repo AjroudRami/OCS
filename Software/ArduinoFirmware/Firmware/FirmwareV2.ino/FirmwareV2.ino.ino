@@ -90,9 +90,9 @@ void setup() {
 
   analogWrite(LED_BLUE, 255);
 
-  println(F("Initializing Bluetooth Software Serial Connection"));
+  Serial.println(F("Initializing Bluetooth Software Serial Connection"));
   mySerial.begin(9600);
-  println(F("Bluetooth Software Serial OK"));
+  Serial.println(F("Bluetooth Software Serial OK"));
 
   setupMPU();
 
@@ -104,7 +104,7 @@ void loop() {
   pollCommand();
   executeCommand();
   stream();
-  delay(20);
+  //delay(20);
 }
 
 
@@ -144,6 +144,8 @@ void executeCommand(){
              break;
     case 13: commandBatteryState();
              break;
+    case 14: commandQuaternions();
+             break;
     default: break;
   }
   commandReceived = false;
@@ -152,6 +154,42 @@ void executeCommand(){
 // ====================================================================
 // ========================= Commands =================================
 // ====================================================================
+
+void commandQuaternions(){
+  Serial.println("Command: Request Quaternions");
+  byte ln = commandBuff[1];
+  byte callbackId[2] = {commandBuff[2], commandBuff[3]};
+  byte qW[4];
+  byte qX[4];
+  byte qY[4];
+  byte qZ[4];
+  float2Bytes((float)q.w, qW);
+  float2Bytes((float)q.x, qX);
+  float2Bytes((float)q.y, qY);
+  float2Bytes((float)q.z, qZ);
+  byte response[20];
+  response[0] = commandBuff[0];
+  response[1] = 20;
+  response[2] = commandBuff[2];
+  response[3] = commandBuff[3];
+  response[4] = qW[0];
+  response[5] = qW[1];
+  response[6] = qW[2];
+  response[7] = qW[3];
+  response[8] = qX[0];
+  response[9] = qX[1];
+  response[10] = qX[2];
+  response[11] = qX[3];
+  response[12] = qY[0];
+  response[13] = qY[1];
+  response[14] = qY[2];
+  response[15] = qY[3];
+  response[16] = qZ[0];
+  response[17] = qZ[1];
+  response[18] = qZ[2];
+  response[19] = qZ[3];
+  sendResponse(response, 20);
+}
 
 void commandYPR(){
   Serial.println("Command: RequestYPR");
@@ -163,7 +201,7 @@ void commandYPR(){
   float2Bytes(yaw, yawB);
   float2Bytes(pitch, pitchB);
   float2Bytes(roll, rollB);
-  byte response[15];
+  byte response[16];
   response[0] = commandBuff[0];
   response[1] = 16;
   response[2] = commandBuff[2];
