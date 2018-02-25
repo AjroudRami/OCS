@@ -83,6 +83,7 @@ public class ArduinoCommander implements SerialDataEventListener {
 
     @Override
     public void dataReceived(SerialDataEvent serialDataEvent) {
+        LOGGER.log(Level.INFO, "Data received !");
         try {
             byte[] rawResponse = serialDataEvent.getBytes();
             LOGGER.info("received: " + Arrays.toString(rawResponse));
