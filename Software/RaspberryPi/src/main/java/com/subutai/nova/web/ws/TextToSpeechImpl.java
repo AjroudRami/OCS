@@ -10,7 +10,7 @@ import java.io.IOException;
 public class TextToSpeechImpl implements TextToSpeechWS {
     @Override
     public Response readText(ReadRequest request) {
-        String text = "\"" + request.getText().replace("\"", "") + "\"";
+        String text = "\"\"" + request.getText().replace("\"", "") + "\"\"";
         String lang = request.getLang();
         try {
             ProcessBuilder p2 = new ProcessBuilder("bash", "../../src/main/resources/textToSpeech.sh", text);
