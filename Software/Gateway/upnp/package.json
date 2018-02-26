@@ -13,6 +13,7 @@
     "express": "^4.16.2",
     "node-ssdp": "^3.2.5",
     "node-upnp-subscription": "^1.0.6",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.0.4",
+    "upnp-device-client": "^1.0.2"
   }
 }

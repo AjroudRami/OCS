@@ -89,11 +89,15 @@ client.on('response', function inResponse(headers, code, rinfo) {
     state: 'ready'
   });
   console.log(`EarthService fount at: http://${address}:${port}/`);
-  upnp = new Subscription(address, port, path);
 
+  client.stop();
+  upnp = new Subscription(address, port);
+
+  /*
   upnp.on('Orientation', function (orientation) {
     console.log(orientation);
-  });
+  });*/
+
 });
 
 console.log('ssdp scan started');
@@ -103,4 +107,8 @@ client.search('urn:schemas-upnp-org:service:EarthService:1');
 setTimeout(() => {
   console.log(`ssdp scan stopped`);
   client.stop()
-}, 5000)
+}, 10000)
+
+process.on('uncaughtException', function (err) {
+  console.log(err);
+}); 
