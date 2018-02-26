@@ -80,15 +80,20 @@ void dmpDataReady() {
 
 
 void setup() {
+  Serial.begin(38400);
+    //while (!Serial);
+  Serial.println("Serial OK");
+  
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
   pinMode(LED_BLUE, OUTPUT);
 
   analogWrite(LED_BLUE, 255);
+
+  Serial.println(F("Initializing Bluetooth Software Serial Connection"));
   mySerial.begin(9600);
-  Serial.begin(38400);
-    //while (!Serial);
-  Serial.println("Serial OK");
+  Serial.println(F("Bluetooth Software Serial OK"));
+
   setupMPU();
 
 }
@@ -99,6 +104,7 @@ void loop() {
   pollCommand();
   executeCommand();
   stream();
+  //delay(20);
 }
 
 
@@ -138,6 +144,8 @@ void executeCommand(){
              break;
     case 13: commandBatteryState();
              break;
+    case 14: commandQuaternions();
+             break;
     default: break;
   }
   commandReceived = false;
@@ -146,6 +154,42 @@ void executeCommand(){
 // ====================================================================
 // ========================= Commands =================================
 // ====================================================================
+
+void commandQuaternions(){
+  Serial.println("Command: Request Quaternions");
+  byte ln = commandBuff[1];
+  byte callbackId[2] = {commandBuff[2], commandBuff[3]};
+  byte qW[4];
+  byte qX[4];
+  byte qY[4];
+  byte qZ[4];
+  float2Bytes((float)q.w, qW);
+  float2Bytes((float)q.x, qX);
+  float2Bytes((float)q.y, qY);
+  float2Bytes((float)q.z, qZ);
+  byte response[20];
+  response[0] = commandBuff[0];
+  response[1] = 20;
+  response[2] = commandBuff[2];
+  response[3] = commandBuff[3];
+  response[4] = qW[0];
+  response[5] = qW[1];
+  response[6] = qW[2];
+  response[7] = qW[3];
+  response[8] = qX[0];
+  response[9] = qX[1];
+  response[10] = qX[2];
+  response[11] = qX[3];
+  response[12] = qY[0];
+  response[13] = qY[1];
+  response[14] = qY[2];
+  response[15] = qY[3];
+  response[16] = qZ[0];
+  response[17] = qZ[1];
+  response[18] = qZ[2];
+  response[19] = qZ[3];
+  sendResponse(response, 20);
+}
 
 void commandYPR(){
   Serial.println("Command: RequestYPR");
@@ -157,7 +201,7 @@ void commandYPR(){
   float2Bytes(yaw, yawB);
   float2Bytes(pitch, pitchB);
   float2Bytes(roll, rollB);
-  byte response[15];
+  byte response[16];
   response[0] = commandBuff[0];
   response[1] = 16;
   response[2] = commandBuff[2];
@@ -265,15 +309,15 @@ void setupMPU(){
     #endif
 
     // initialize device
-    Serial.println(F("Initializing I2C devices..."));
+    Serial.println(F("Initializing I2C MPU..."));
     mpu.initialize();
 
     // verify connection
-    Serial.println(F("Testing device connections..."));
+    Serial.println(F("Testing MPU connections..."));
     Serial.println(mpu.testConnection() ? F("MPU6050 connection successful") : F("MPU6050 connection failed"));
 
     // load and configure the DMP
-    Serial.println(F("Initializing DMP..."));
+    Serial.println(F("Initializing DMP (MPU)..."));
     devStatus = mpu.dmpInitialize();
 
     // supply your own gyro offsets here, scaled for min sensitivity
@@ -285,18 +329,18 @@ void setupMPU(){
     // make sure it worked (returns 0 if so)
     if (devStatus == 0) {
         // turn on the DMP, now that it's ready
-        Serial.println(F("Enabling DMP..."));
+        Serial.println(F("Enabling DMP (MPU)..."));
         mpu.setDMPEnabled(true);
 
         // enable Arduino interrupt detection
-        Serial.println(F("Enabling interrupt detection (Arduino external interrupt 0)..."));
+        Serial.println(F("Enabling MPU interrupt detection (Arduino external interrupt pin 2)..."));
         attachInterrupt(digitalPinToInterrupt(GYRO_INT), dmpDataReady, RISING);
         mpuIntStatus = mpu.getIntStatus();
 
         // set our DMP Ready flag so the main loop() function knows it's okay to use it
-        Serial.println(F("DMP ready! Waiting for first interrupt..."));
+        Serial.println(F("DMP ready! Waiting for MPU first interrupt..."));
         dmpReady = true;
-
+        Serial.println(F("MPU Ready to use!"));
         // get expected DMP packet size for later comparison
         packetSize = mpu.dmpGetFIFOPacketSize();
     } else {
